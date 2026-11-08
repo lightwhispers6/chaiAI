@@ -26,9 +26,6 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-        env:
-          # 在仓库 Settings → Secrets and variables → Actions → Variables 里配置
-          VITE_CONTACT_API: ${{ vars.VITE_CONTACT_API }}
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
