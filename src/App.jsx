@@ -13,6 +13,7 @@ import Coai from './pages/Coai'
 import SkillFusion from './pages/SkillFusion'
 import Workshops from './pages/Workshops'
 import Camp from './pages/Camp'
+import Contact from './pages/Contact'
 
 function RedirectBook() {
   const { title } = useParams()
@@ -36,6 +37,7 @@ function App() {
           <Route path="/book/:title" element={<RedirectBook />} />
           <Route path="/memoir/:id" element={<RedirectMemoir />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/hot" element={<Navigate to="/hot/books" replace />} />
           <Route path="/hot/books" element={<HotBooks />} />
           <Route path="/hot/book/:id" element={<HotBookDetail />} />
