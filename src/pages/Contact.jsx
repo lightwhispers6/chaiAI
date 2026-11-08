@@ -1,8 +1,14 @@
 import { useState } from 'react'
 
-// 后端接口地址：本地开发默认 /api/contact（配合 vite 代理），
-// 线上在 .env 里配置 VITE_CONTACT_API=https://你的后端域名/api/contact
-const API_URL = import.meta.env.VITE_CONTACT_API || '/api/contact'
+// 后端接口地址优先级：
+// 1. 环境变量 VITE_CONTACT_API（如有自定义后端）
+// 2. 本地开发：/api/contact（vite 代理到 localhost:3001）
+// 3. 线上默认：已部署的联系表单后端服务
+const API_URL =
+  import.meta.env.VITE_CONTACT_API ||
+  (import.meta.env.DEV
+    ? '/api/contact'
+    : 'https://chaishu-contact.app.workbuddy.host/api/contact?sharecode=ZVH47YSOVU')
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '', website: '' })
