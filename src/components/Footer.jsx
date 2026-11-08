@@ -20,6 +20,10 @@ export default function Footer() {
             <p className="text-[13px] leading-relaxed text-[#9990a8] mt-3 max-w-sm">
               主理人 annie · 微信 <span className="text-[#6c60cc] font-medium">happyannie626</span>
             </p>
+            <p className="text-[13px] leading-relaxed text-[#9990a8] mt-1.5 max-w-sm">
+              邮箱 <a href="mailto:annieannie0626@qq.com" className="text-[#6c60cc] font-medium hover:underline">annieannie0626@qq.com</a>
+              　·　<Link to="/contact" className="text-[#6c60cc] font-medium hover:underline">在线留言</Link>
+            </p>
           </div>
           <div>
             <div className="text-[12px] font-semibold text-[#241f38] mb-3 tracking-wide">课程</div>

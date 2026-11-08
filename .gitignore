@@ -32,3 +32,8 @@ api_books.json
 
 # local claude settings
 .claude/settings.local.json
+
+# Environment variables (含 QQ 邮箱授权码，绝不提交)
+.env
+.env.*
+!.env.example

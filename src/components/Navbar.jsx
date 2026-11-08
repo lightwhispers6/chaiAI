@@ -12,6 +12,7 @@ const navLinks = [
   { path: '/skill-fusion', label: '拆专家' },
   { path: '/coai', label: '共拆AI' },
   { path: '/about', label: '关于' },
+  { path: '/contact', label: '联系我' },
 ]
 
 export default function Navbar() {
