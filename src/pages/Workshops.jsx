@@ -27,12 +27,12 @@ function SupportCard({ t, i }) {
     >
       <div className="flex items-start justify-between gap-3 mb-2">
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="px-2 py-0.5 rounded-full bg-[#0071e3]/[.07] text-[#0071e3] text-[11px] font-semibold">{t.cat}</span>
+          <span className="px-2 py-0.5 rounded-full bg-[#6c60cc]/[.07] text-[#6c60cc] text-[11px] font-semibold">{t.cat}</span>
           {t.platform === 'loongbuddy' && (
-            <span className="px-2 py-0.5 rounded-full bg-[#1d1d1f]/[.06] text-[#1d1d1f] text-[11px] font-semibold">⚡ LoongBuddy</span>
+            <span className="px-2 py-0.5 rounded-full bg-[#241f38]/[.06] text-[#241f38] text-[11px] font-semibold">⚡ LoongBuddy</span>
           )}
           {t.platform === 'need' && (
-            <span className="px-2 py-0.5 rounded-full bg-[#86868b]/[.12] text-[#86868b] text-[11px] font-medium">连接器待补</span>
+            <span className="px-2 py-0.5 rounded-full bg-[#9990a8]/[.12] text-[#9990a8] text-[11px] font-medium">连接器待补</span>
           )}
         </div>
         <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#ff2d55] shrink-0">
@@ -42,8 +42,8 @@ function SupportCard({ t, i }) {
           我支持 {count}
         </span>
       </div>
-      <div className="text-[16px] font-bold text-[#1d1d1f] mb-1">{t.title}</div>
-      <div className="text-[13px] text-[#6e6e73] leading-relaxed">{t.desc}</div>
+      <div className="text-[16px] font-bold text-[#241f38] mb-1">{t.title}</div>
+      <div className="text-[13px] text-[#5f5870] leading-relaxed">{t.desc}</div>
     </motion.button>
   )
 }
@@ -84,11 +84,11 @@ function NeedsForm() {
         setForm({ software: '', scene: '', expect: '', contact: '', website: '' })
       } else {
         setState('error')
-        setMsg(d.error || '提交失败，请稍后再试，或直接加微信 ikoning365')
+        setMsg(d.error || '提交失败，请稍后再试，或直接加微信 happyannie626')
       }
     } catch {
       setState('error')
-      setMsg('网络异常，提交失败——加微信 ikoning365 一样能提需求')
+      setMsg('网络异常，提交失败——加微信 happyannie626 一样能提需求')
     }
   }
 
@@ -96,20 +96,20 @@ function NeedsForm() {
     <form onSubmit={submit} className="apple-card p-6 md:p-10 text-left">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[13px] font-bold text-[#1d1d1f] mb-1.5">想拆的软件 / 工具 <span className="text-[#86868b] font-normal">（可不填）</span></label>
-          <input value={form.software} onChange={set('software')} maxLength={120} className="w-full rounded-xl bg-[#f5f5f7] px-4 py-3 text-[14px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/40" placeholder="如：京东价保监控、券商 App" />
+          <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">想拆的软件 / 工具 <span className="text-[#9990a8] font-normal">（可不填）</span></label>
+          <input value={form.software} onChange={set('software')} maxLength={120} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40" placeholder="如：京东价保监控、券商 App" />
         </div>
         <div>
-          <label className="block text-[13px] font-bold text-[#1d1d1f] mb-1.5">联系方式 <span className="text-[#ff2d55]">*</span></label>
-          <input value={form.contact} onChange={set('contact')} maxLength={60} className="w-full rounded-xl bg-[#f5f5f7] px-4 py-3 text-[14px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/40" placeholder="微信号 / 手机号" />
+          <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">联系方式 <span className="text-[#ff2d55]">*</span></label>
+          <input value={form.contact} onChange={set('contact')} maxLength={60} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40" placeholder="微信号 / 手机号" />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-[13px] font-bold text-[#1d1d1f] mb-1.5">你现在是怎么做的</label>
-          <textarea value={form.scene} onChange={set('scene')} rows={3} maxLength={600} className="w-full rounded-xl bg-[#f5f5f7] px-4 py-3 text-[14px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/40 resize-none" placeholder="比如：每天早上手动打开 5 个软件挨个看，大概花 40 分钟" />
+          <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">你现在是怎么做的</label>
+          <textarea value={form.scene} onChange={set('scene')} rows={3} maxLength={600} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40 resize-none" placeholder="比如：每天早上手动打开 5 个软件挨个看，大概花 40 分钟" />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-[13px] font-bold text-[#1d1d1f] mb-1.5">想要 AI 帮你做到什么</label>
-          <textarea value={form.expect} onChange={set('expect')} rows={3} maxLength={600} className="w-full rounded-xl bg-[#f5f5f7] px-4 py-3 text-[14px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/40 resize-none" placeholder="比如：早上 8 点自动汇总成一条消息发给我" />
+          <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">想要 AI 帮你做到什么</label>
+          <textarea value={form.expect} onChange={set('expect')} rows={3} maxLength={600} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40 resize-none" placeholder="比如：早上 8 点自动汇总成一条消息发给我" />
         </div>
       </div>
       <input type="text" name="website" value={form.website} onChange={set('website')} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
@@ -118,13 +118,13 @@ function NeedsForm() {
       ) : (
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <button type="submit" disabled={state === 'sending'} className="btn-primary">{state === 'sending' ? '提交中…' : '提交需求 →'}</button>
-          <span className="text-[13px] text-[#86868b]">提交后由工作坊老师人工跟进，不群发打扰。</span>
+          <span className="text-[13px] text-[#9990a8]">提交后由工作坊老师人工跟进，不群发打扰。</span>
         </div>
       )}
       {state === 'error' && (
         <div className="mt-4 rounded-xl bg-[#ff2d55]/10 text-[#d1334e] text-[13.5px] px-4 py-3">
           {msg}
-          <button type="button" onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }} className="ml-2 underline font-semibold">复制微信 ikoning365</button>
+          <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="ml-2 underline font-semibold">复制微信 happyannie626</button>
         </div>
       )}
     </form>
@@ -144,7 +144,7 @@ export default function Workshops() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="eyebrow mb-4">拆书帮小蛮腰AI拆书课 小蛮腰拆AI工坊</div>
           <h1 className="headline text-[38px] md:text-[52px] mb-5">想拆哪个，<span className="gradient-text">你说了算</span></h1>
-          <p className="text-[16px] md:text-[17px] leading-relaxed text-[#6e6e73] max-w-2xl mx-auto">{seriesIntro}</p>
+          <p className="text-[16px] md:text-[17px] leading-relaxed text-[#5f5870] max-w-2xl mx-auto">{seriesIntro}</p>
         </div>
       </section>
 
@@ -158,21 +158,21 @@ export default function Workshops() {
           transition={{ duration: 0.5 }}
           className="px-4 pb-8"
         >
-          <div className="max-w-4xl mx-auto apple-card p-8 md:p-10 border-[#0071e3]/25 shadow-[0_10px_36px_rgba(0,113,227,.10)]">
+          <div className="max-w-4xl mx-auto apple-card p-8 md:p-10 border-[#6c60cc]/25 shadow-[0_10px_36px_rgba(108,96,204,.10)]">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0071e3]/10 text-[#0071e3] text-[12px] font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0071e3] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6c60cc]/10 text-[#6c60cc] text-[12px] font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#6c60cc] animate-pulse" />
                 {statusLabelOf(w)}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="text-[11px] text-[#86868b] font-semibold tracking-wide">拆的软件</span>
+                <span className="text-[11px] text-[#9990a8] font-semibold tracking-wide">拆的软件</span>
                 {w.tools.map(t => (
-                  <span key={t} className="px-2.5 py-1 rounded-lg bg-[#1d1d1f] text-white text-[12.5px] font-bold tracking-wide">{t}</span>
+                  <span key={t} className="px-2.5 py-1 rounded-lg bg-[#241f38] text-white text-[12.5px] font-bold tracking-wide">{t}</span>
                 ))}
               </span>
             </div>
-            <h2 className="text-[28px] md:text-[32px] font-bold tracking-tight text-[#1d1d1f] mb-3">{w.no} · {w.title}</h2>
-            <p className="text-[15.5px] leading-relaxed text-[#6e6e73] mb-7 max-w-2xl">{w.summary}</p>
+            <h2 className="text-[28px] md:text-[32px] font-bold tracking-tight text-[#241f38] mb-3">{w.no} · {w.title}</h2>
+            <p className="text-[15.5px] leading-relaxed text-[#5f5870] mb-7 max-w-2xl">{w.summary}</p>
 
             <div className="grid sm:grid-cols-3 gap-3 mb-7">
               {[
@@ -180,20 +180,20 @@ export default function Workshops() {
                 ['地点', w.location],
                 ['费用', w.fee],
               ].map(([k, v]) => (
-                <div key={k} className="rounded-xl bg-[#f5f5f7] px-4 py-3">
-                  <div className="text-[11px] text-[#86868b] font-semibold mb-0.5">{k}</div>
-                  <div className="text-[13px] text-[#1d1d1f] leading-snug">{v}</div>
+                <div key={k} className="rounded-xl bg-[#f5f1e8] px-4 py-3">
+                  <div className="text-[11px] text-[#9990a8] font-semibold mb-0.5">{k}</div>
+                  <div className="text-[13px] text-[#241f38] leading-snug">{v}</div>
                 </div>
               ))}
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div>
-                <div className="text-[13px] font-bold text-[#1d1d1f] mb-3">现场带走</div>
+                <div className="text-[13px] font-bold text-[#241f38] mb-3">现场带走</div>
                 <ul className="space-y-2">
                   {w.outcomes.map(o => (
-                    <li key={o} className="flex gap-2 text-[13.5px] text-[#424245] leading-relaxed">
-                      <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#0071e3]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <li key={o} className="flex gap-2 text-[13.5px] text-[#4a4458] leading-relaxed">
+                      <svg className="w-4 h-4 mt-0.5 shrink-0 text-[#6c60cc]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       {o}
@@ -202,10 +202,10 @@ export default function Workshops() {
                 </ul>
               </div>
               <div className="md:col-span-2">
-                <div className="text-[13px] font-bold text-[#1d1d1f] mb-3">适合谁</div>
+                <div className="text-[13px] font-bold text-[#241f38] mb-3">适合谁</div>
                 <div className="flex flex-wrap gap-2">
                   {w.who.map(p => (
-                    <span key={p} className="px-3 py-1.5 rounded-full bg-black/[.04] text-[#424245] text-[13px]">{p}</span>
+                    <span key={p} className="px-3 py-1.5 rounded-full bg-black/[.04] text-[#4a4458] text-[13px]">{p}</span>
                   ))}
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function Workshops() {
                 <>
                   {w.link && <a href={w.link} className="btn-primary">材料回看 · 课件与学员材料 →</a>}
                   {w.guide && <a href={w.guide} className="btn-secondary">自助跟做手册 · 零基础也能一步步做出成果 →</a>}
-                  <button type="button" onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">想听下一场：微信 ikoning365 📋</button>
+                  <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">想听下一场：微信 happyannie626 📋</button>
                 </>
               ) : s === 'live' ? (
                 <>
@@ -226,7 +226,7 @@ export default function Workshops() {
               ) : w.signupUrl ? (
                 <a href={w.signupUrl} target="_blank" rel="noreferrer" className="btn-primary">立即报名（拆书帮公众号）→</a>
               ) : (
-                <button type="button" onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }} className="btn-primary" title="点击复制微信号">立即报名（微信 ikoning365）→</button>
+                <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-primary" title="点击复制微信号">立即报名（微信 happyannie626）→</button>
               )}
               {s !== 'done' && w.link && <a href={w.link} className="btn-secondary">看本场完整介绍 →</a>}
             </div>
@@ -252,26 +252,26 @@ export default function Workshops() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[22px] font-bold text-[#c7c7cc]">{w.no}</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-black/[.05] text-[#86868b] text-[11.5px] font-semibold">{statusLabelOf(w)}</span>
+                      <span className="text-[22px] font-bold text-[#c9b9a4]">{w.no}</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-black/[.05] text-[#9990a8] text-[11.5px] font-semibold">{statusLabelOf(w)}</span>
                     </div>
-                    <h3 className="text-[19px] font-bold text-[#1d1d1f] mb-1.5">{w.title}</h3>
-                    <p className="text-[14px] text-[#6e6e73] leading-relaxed mb-2.5 max-w-xl">{w.short}</p>
+                    <h3 className="text-[19px] font-bold text-[#241f38] mb-1.5">{w.title}</h3>
+                    <p className="text-[14px] text-[#5f5870] leading-relaxed mb-2.5 max-w-xl">{w.short}</p>
                     <div className="flex flex-wrap items-center gap-1.5 mb-3">
-                      <span className="text-[11px] text-[#86868b] font-semibold tracking-wide">拆的软件</span>
+                      <span className="text-[11px] text-[#9990a8] font-semibold tracking-wide">拆的软件</span>
                       {w.tools.map(t => (
-                        <span key={t} className="px-2 py-0.5 rounded-md bg-[#1d1d1f] text-white text-[12px] font-bold tracking-wide">{t}</span>
+                        <span key={t} className="px-2 py-0.5 rounded-md bg-[#241f38] text-white text-[12px] font-bold tracking-wide">{t}</span>
                       ))}
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {w.outcomes.map(o => (
-                        <span key={o} className="px-2.5 py-1 rounded-lg bg-[#0071e3]/[.06] text-[#424245] text-[12.5px]">{o}</span>
+                        <span key={o} className="px-2.5 py-1 rounded-lg bg-[#6c60cc]/[.06] text-[#4a4458] text-[12.5px]">{o}</span>
                       ))}
                     </div>
                     {(w.link || w.guide) && (
                       <div className="mt-3 flex flex-wrap items-center gap-4">
-                        {w.link && <a href={w.link} className="text-[13px] font-semibold text-[#0071e3] hover:underline">看本场完整介绍 →</a>}
-                        {w.guide && <a href={w.guide} className="text-[13px] font-semibold text-[#0071e3] hover:underline">自助跟做手册 →</a>}
+                        {w.link && <a href={w.link} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">看本场完整介绍 →</a>}
+                        {w.guide && <a href={w.guide} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">自助跟做手册 →</a>}
                       </div>
                     )}
                   </div>
@@ -300,20 +300,20 @@ export default function Workshops() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[22px] font-bold text-[#c7c7cc]">{w.no}</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#0071e3]/[.07] text-[#0071e3] text-[11.5px] font-semibold">✓ 已交付 · {w.date}</span>
+                      <span className="text-[22px] font-bold text-[#c9b9a4]">{w.no}</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#6c60cc]/[.07] text-[#6c60cc] text-[11.5px] font-semibold">✓ 已交付 · {w.date}</span>
                     </div>
-                    <h3 className="text-[19px] font-bold text-[#1d1d1f] mb-1.5">{w.title}</h3>
-                    <p className="text-[14px] text-[#6e6e73] leading-relaxed mb-2.5 max-w-xl">{w.short}</p>
+                    <h3 className="text-[19px] font-bold text-[#241f38] mb-1.5">{w.title}</h3>
+                    <p className="text-[14px] text-[#5f5870] leading-relaxed mb-2.5 max-w-xl">{w.short}</p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {w.outcomes.map(o => (
-                        <span key={o} className="px-2.5 py-1 rounded-lg bg-[#0071e3]/[.06] text-[#424245] text-[12.5px]">{o}</span>
+                        <span key={o} className="px-2.5 py-1 rounded-lg bg-[#6c60cc]/[.06] text-[#4a4458] text-[12.5px]">{o}</span>
                       ))}
                     </div>
                     {(w.link || w.guide) && (
                       <div className="mt-1 flex flex-wrap items-center gap-4">
-                        {w.link && <a href={w.link} className="text-[13px] font-semibold text-[#0071e3] hover:underline">材料回看 · 课件与学员材料 →</a>}
-                        {w.guide && <a href={w.guide} className="text-[13px] font-semibold text-[#0071e3] hover:underline">自助跟做手册 →</a>}
+                        {w.link && <a href={w.link} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">材料回看 · 课件与学员材料 →</a>}
+                        {w.guide && <a href={w.guide} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">自助跟做手册 →</a>}
                       </div>
                     )}
                   </div>
@@ -331,16 +331,16 @@ export default function Workshops() {
           <div className="text-center mb-12">
             <div className="eyebrow mb-3">想拆哪个 · 我支持</div>
             <h2 className="headline text-[30px] md:text-[38px] mb-4">主题投票，<span className="gradient-text">支持数高的先开</span></h2>
-            <p className="text-[15px] text-[#6e6e73] max-w-2xl mx-auto">
+            <p className="text-[15px] text-[#5f5870] max-w-2xl mx-auto">
               同类软件已合并为一个主题，开课时用你手头那款。优先平台 LoongBuddy（25+ 官方连接器），workbuddy 同步支持；带「连接器待补」的主题票高就立项补连接器。点「我支持」为你想拆的主题投票——支持数最高的优先排期开课。列表里没有你想拆的？到下方「说出你的需求」填一下。
             </p>
           </div>
           {cats.map(cat => (
             <div key={cat} className="mb-10">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[15px] font-bold text-[#1d1d1f]">{cat}</span>
+                <span className="text-[15px] font-bold text-[#241f38]">{cat}</span>
                 <span className="h-px flex-1 bg-black/[.06]" />
-                <span className="text-[12px] text-[#86868b]">{voteThemes.filter(t => t.cat === cat).length} 个主题</span>
+                <span className="text-[12px] text-[#9990a8]">{voteThemes.filter(t => t.cat === cat).length} 个主题</span>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {voteThemes.filter(t => t.cat === cat).map((t, i) => (
@@ -350,15 +350,15 @@ export default function Workshops() {
             </div>
           ))}
           <div className="mt-6 mb-4 text-center">
-            <p className="text-[14px] text-[#6e6e73] mb-5">
-              投完票想聊聊？加微信 ikoning365，备注「工作坊」——也帮你想拆的软件出出主意。
+            <p className="text-[14px] text-[#5f5870] mb-5">
+              投完票想聊聊？加微信 happyannie626，备注「工作坊」——也帮你想拆的软件出出主意。
             </p>
             {nx ? (
               <a href={nx.signupUrl || nx.link} target={nx.signupUrl ? '_blank' : undefined} rel="noreferrer" className="btn-primary">报名 {shortDate(nx)} 场（{nx.title.split(' · ')[0]}）→</a>
             ) : (
               <a href={done.length ? done[done.length - 1].link : '/workshops'} className="btn-primary">看已交付课程材料 →</a>
             )}
-            <button type="button" onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">后续场次报名：微信 ikoning365 📋</button>
+            <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">后续场次报名：微信 happyannie626 📋</button>
             <div className="mt-5">
               <a href="/camp" className="text-[14px] text-[#2997ff] hover:underline">线上也能玩：拆AI营 · 工作流/工作台/量化三版块，每周三晚开拆 →</a>
             </div>
@@ -372,7 +372,7 @@ export default function Workshops() {
           <div className="text-center mb-8">
             <div className="eyebrow mb-3">列表里没有 · 说出你的需求</div>
             <h2 className="headline text-[26px] md:text-[32px] mb-4">你想要的工作坊，<span className="gradient-text">填了就算投票</span></h2>
-            <p className="text-[15px] text-[#6e6e73] max-w-xl mx-auto">
+            <p className="text-[15px] text-[#5f5870] max-w-xl mx-auto">
               想拆的软件不在列表里？花一分钟写下你现在的做法和想要的效果——需求集中同类多，就优先开成新一期工作坊。
             </p>
           </div>

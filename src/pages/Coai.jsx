@@ -88,7 +88,7 @@ const PROJECTS = [
   },
 ]
 
-const OWNER_MAIL = '554176937@qq.com'
+const OWNER_MAIL = ''
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -107,15 +107,15 @@ export default function Coai() {
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/20 text-amber-500 text-sm font-bold">
             六条合作线 · 六个在跑项目
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-[#1d1d1f] tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-[#241f38] tracking-tight">
             共拆AI<span className="text-amber-500">.</span>
           </h1>
-          <p className="text-[#6e6e73] max-w-2xl mx-auto leading-relaxed mt-4">
-            「共拆AI」不是一门课，是一条<b className="text-[#1d1d1f]">开放共建</b>的产线：
+          <p className="text-[#5f5870] max-w-2xl mx-auto leading-relaxed mt-4">
+            「共拆AI」不是一门课，是一条<b className="text-[#241f38]">开放共建</b>的产线：
             每种合作模式背后都是一个正在运转的真实项目——课件、代码、数据、方法论全部摊开。
             你不必从零开始，挑一条线加入即可。
           </p>
-          <div className="flex items-center justify-center gap-2 flex-wrap mt-6 text-xs text-[#86868b]">
+          <div className="flex items-center justify-center gap-2 flex-wrap mt-6 text-xs text-[#9990a8]">
             <span className="px-3 py-1.5 rounded-full glass border border-white/10">六种合作模式</span>
             <span className="px-3 py-1.5 rounded-full glass border border-white/10">六个真实项目</span>
             <span className="px-3 py-1.5 rounded-full glass border border-white/10">5473 位搭子在名录</span>
@@ -133,7 +133,7 @@ export default function Coai() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between gap-3 flex-wrap">
                   <div>
-                    <h2 className="text-xl font-black text-[#1d1d1f]">{p.emoji} {p.name}</h2>
+                    <h2 className="text-xl font-black text-[#241f38]">{p.emoji} {p.name}</h2>
                     <p className="text-sm font-bold mt-0.5" style={{ color: 'currentColor' }}>
                       <span className={p.accent.split(' ')[0]}>{p.full}</span>
                     </p>
@@ -141,18 +141,18 @@ export default function Coai() {
                   <span className={`px-3 py-1 rounded-full text-[10px] font-bold border ${p.accent}`}>{p.project}</span>
                 </div>
 
-                <p className="text-[13px] text-[#6e6e73] leading-relaxed mt-4">{p.what}</p>
+                <p className="text-[13px] text-[#5f5870] leading-relaxed mt-4">{p.what}</p>
 
                 <div className="flex items-center gap-1.5 flex-wrap mt-4">
-                  <span className="text-[10px] font-bold text-[#86868b] mr-1">适合谁</span>
+                  <span className="text-[10px] font-bold text-[#9990a8] mr-1">适合谁</span>
                   {p.who.map(t => (
                     <span key={t} className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-600 border border-amber-500/25">{t}</span>
                   ))}
                 </div>
 
                 <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3.5">
-                  <p className="text-[11px] font-bold text-[#86868b] mb-1">怎么开始</p>
-                  <p className="text-xs text-[#6e6e73] leading-relaxed">{p.how}</p>
+                  <p className="text-[11px] font-bold text-[#9990a8] mb-1">怎么开始</p>
+                  <p className="text-xs text-[#5f5870] leading-relaxed">{p.how}</p>
                 </div>
 
                 <div className="mt-4">
@@ -172,14 +172,14 @@ export default function Coai() {
         <motion.div {...fadeUp} className="glass rounded-2xl border border-amber-500/25 p-8 text-center relative overflow-hidden">
           <div className="absolute -top-16 -right-16 w-56 h-56 bg-amber-500/10 rounded-full blur-[70px]" />
           <div className="relative z-10">
-            <h2 className="text-xl md:text-2xl font-black text-[#1d1d1f]">不知道自己适合哪条线？</h2>
-            <p className="text-sm text-[#6e6e73] mt-2 max-w-xl mx-auto leading-relaxed">
+            <h2 className="text-xl md:text-2xl font-black text-[#241f38]">不知道自己适合哪条线？</h2>
+            <p className="text-sm text-[#5f5870] mt-2 max-w-xl mx-auto leading-relaxed">
               去「拆搭子」搜你自己的名字——系统会根据你的职业与兴趣标签，推荐最适合你的合作模式。
               也可以直接找站长聊。
             </p>
             <div className="flex items-center justify-center gap-3 flex-wrap mt-6">
-              <a href="/chaibuddy" className="px-5 py-2.5 rounded-xl text-sm font-bold bg-[#1d1d1f] text-white hover:bg-[#3a3a3c] transition-colors">去拆搭子找自己 →</a>
-              <a href={`mailto:${OWNER_MAIL}`} className="px-5 py-2.5 rounded-xl text-sm font-bold glass border border-white/15 text-[#1d1d1f] hover:border-white/30 transition-colors">邮件站长</a>
+              <a href="/chaibuddy" className="px-5 py-2.5 rounded-xl text-sm font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">去拆搭子找自己 →</a>
+              <a href={`mailto:${OWNER_MAIL}`} className="px-5 py-2.5 rounded-xl text-sm font-bold glass border border-white/15 text-[#241f38] hover:border-white/30 transition-colors">邮件站长</a>
             </div>
           </div>
         </motion.div>

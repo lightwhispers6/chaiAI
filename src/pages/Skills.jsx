@@ -51,8 +51,8 @@ export default function Skills() {
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/10 to-violet-500/10 border border-pink-500/20 text-pink-400 text-sm">
             便签拆书 · 拆技能工坊
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-[#1d1d1f] mb-3">Skill 拆技能工坊</h1>
-          <p className="text-[#6e6e73] max-w-2xl mx-auto mb-6">
+          <h1 className="text-3xl md:text-5xl font-black text-[#241f38] mb-3">Skill 拆技能工坊</h1>
+          <p className="text-[#5f5870] max-w-2xl mx-auto mb-6">
             从拆书实录中萃取可执行的技能框架，共 <span className="text-neon-purple font-bold">{totalItems}</span> 个教练技能
           </p>
 
@@ -79,7 +79,7 @@ export default function Skills() {
           <div className="max-w-2xl mx-auto space-y-4">
             {/* Search */}
             <div className="relative">
-              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#86868b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9990a8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -87,12 +87,12 @@ export default function Skills() {
                 placeholder="搜索技能名称、书籍、作者..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-xl bg-dark-card/80 border border-dark-border text-[#424245] placeholder-slate-600 focus:outline-none focus:border-neon-purple/50 focus:ring-1 focus:ring-neon-purple/20 transition-all text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl bg-dark-card/80 border border-dark-border text-[#4a4458] placeholder-slate-600 focus:outline-none focus:border-neon-purple/50 focus:ring-1 focus:ring-neon-purple/20 transition-all text-sm"
               />
             </div>
 
             {/* Count */}
-            <p className="text-xs text-[#86868b]">
+            <p className="text-xs text-[#9990a8]">
               {search
                 ? `显示 ${filteredCount} 个技能（共 ${totalItems} 个）`
                 : `共 ${totalItems} 个教练技能`}
@@ -114,41 +114,41 @@ export default function Skills() {
             <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 border border-cyan-500/20 text-cyan-600 text-sm">
               新工作坊 · 定档后开放报名
             </div>
-            <h2 className="text-2xl md:text-4xl font-black text-[#1d1d1f] mb-3">拆技能工作坊 · 拆我的，做你的</h2>
-            <p className="text-[#6e6e73] max-w-3xl mb-8">
-              目标不是软件，是<b className="text-[#1d1d1f]">技能本身</b>——现场拆讲师的两个开源 skill（怎么把一件重复的事固化成 AI 会干的活），再做出你自己的 skill 和工作流，上矩阵跑起来。
+            <h2 className="text-2xl md:text-4xl font-black text-[#241f38] mb-3">拆技能工作坊 · 拆我的，做你的</h2>
+            <p className="text-[#5f5870] max-w-3xl mb-8">
+              目标不是软件，是<b className="text-[#241f38]">技能本身</b>——现场拆讲师的两个开源 skill（怎么把一件重复的事固化成 AI 会干的活），再做出你自己的 skill 和工作流，上矩阵跑起来。
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               <div className="p-5 rounded-xl bg-dark-card-hover/50 border border-dark-border">
                 <div className="text-xs text-cyan-600 font-semibold mb-2">教材 ① · 公众号内容工厂</div>
-                <a href="https://github.com/kenyanghui/rsi-ima-workbuddy-wechatpub" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#1d1d1f] hover:text-cyan-600 break-all">rsi-ima-workbuddy-wechatpub ↗</a>
-                <p className="text-xs text-[#86868b] mt-2">把你的 IMA 知识库变成公众号内容工厂——每天自动产 3 篇原创长文进草稿箱（绝不自动群发）。</p>
+                <a href="https://github.com/kenyanghui/rsi-ima-workbuddy-wechatpub" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#241f38] hover:text-cyan-600 break-all">rsi-ima-workbuddy-wechatpub ↗</a>
+                <p className="text-xs text-[#9990a8] mt-2">把你的 IMA 知识库变成公众号内容工厂——每天自动产 3 篇原创长文进草稿箱（绝不自动群发）。</p>
               </div>
               <div className="p-5 rounded-xl bg-dark-card-hover/50 border border-dark-border">
                 <div className="text-xs text-cyan-600 font-semibold mb-2">教材 ② · 个人网站流水线</div>
-                <a href="https://github.com/kenyanghui/rsi-ima-workbuddy-wechat-web" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#1d1d1f] hover:text-cyan-600 break-all">rsi-ima-workbuddy-wechat-web ↗</a>
-                <p className="text-xs text-[#86868b] mt-2">一库一站一号：5 分钟建站、素材双出口、兴趣雷达 + 读者来信双链路回 ima。</p>
+                <a href="https://github.com/kenyanghui/rsi-ima-workbuddy-wechat-web" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-[#241f38] hover:text-cyan-600 break-all">rsi-ima-workbuddy-wechat-web ↗</a>
+                <p className="text-xs text-[#9990a8] mt-2">一库一站一号：5 分钟建站、素材双出口、兴趣雷达 + 读者来信双链路回 ima。</p>
               </div>
               <div className="p-5 rounded-xl bg-gradient-to-br from-cyan-500/10 to-emerald-500/10 border border-cyan-500/30">
                 <div className="text-xs text-cyan-600 font-semibold mb-2">交付台阶 · 上矩阵</div>
-                <div className="text-sm font-bold text-[#1d1d1f]">你做的 skill，上算力矩阵跑</div>
-                <p className="text-xs text-[#86868b] mt-2">做好的 skill 接上 loong-workflow 工作流——满编调度、定时跑批、巡检告警全自动，你的技能从「手动用」变成「自己跑」。</p>
+                <div className="text-sm font-bold text-[#241f38]">你做的 skill，上算力矩阵跑</div>
+                <p className="text-xs text-[#9990a8] mt-2">做好的 skill 接上 loong-workflow 工作流——满编调度、定时跑批、巡检告警全自动，你的技能从「手动用」变成「自己跑」。</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
-                <div className="text-xs font-semibold text-[#86868b] tracking-widest mb-3">带走三样</div>
-                <ul className="space-y-2 text-sm text-[#424245]">
+                <div className="text-xs font-semibold text-[#9990a8] tracking-widest mb-3">带走三样</div>
+                <ul className="space-y-2 text-sm text-[#4a4458]">
                   <li className="flex gap-2"><span className="text-cyan-600 font-bold">①</span>拆懂一个生产级 skill 的全部构造（SKILL.md / 脚本 / 护栏 / 台账）</li>
                   <li className="flex gap-2"><span className="text-cyan-600 font-bold">②</span>你自己的 skill 一个，发到你自己的 GitHub 仓（现场发出去）</li>
                   <li className="flex gap-2"><span className="text-cyan-600 font-bold">③</span>一条上了矩阵的工作流：定时跑、出日报、卡了会喊你</li>
                 </ul>
               </div>
               <div>
-                <div className="text-xs font-semibold text-[#86868b] tracking-widest mb-3">适合谁</div>
-                <ul className="space-y-2 text-sm text-[#424245]">
+                <div className="text-xs font-semibold text-[#9990a8] tracking-widest mb-3">适合谁</div>
+                <ul className="space-y-2 text-sm text-[#4a4458]">
                   <li>想让 AI 替自己干重复活的内容创作者</li>
                   <li>用过 AI、想从「会用工具」进阶到「会做技能」的学员</li>
                   <li>想把一套做法固化成可复用、可托管资产的人</li>
@@ -159,13 +159,13 @@ export default function Skills() {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 type="button"
-                onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }}
-                className="px-5 py-2.5 rounded-xl bg-[#0071e3] text-white text-sm font-semibold hover:bg-[#0077ed] transition-all"
+                onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }}
+                className="px-5 py-2.5 rounded-xl bg-[#6c60cc] text-white text-sm font-semibold hover:bg-[#7d72d6] transition-all"
                 title="点击复制微信号"
               >
-                定档早知道 · 微信 ikoning365 📋
+                定档早知道 · 微信 happyannie626 📋
               </button>
-              <span className="text-xs text-[#86868b]">时间地点定档后，报名帖发拆书帮公众号 · 12 人小班</span>
+              <span className="text-xs text-[#9990a8]">时间地点定档后，报名帖发拆书帮公众号 · 12 人小班</span>
             </div>
           </div>
         </motion.div>
@@ -177,10 +177,10 @@ export default function Skills() {
           {filteredSkills.length === 0 ? (
             <div className="text-center py-20">
               <div className="text-4xl mb-4 opacity-30">🔍</div>
-              <p className="text-[#86868b]">没有找到匹配的技能，试试其他关键词</p>
+              <p className="text-[#9990a8]">没有找到匹配的技能，试试其他关键词</p>
               <button
                 onClick={() => { setSearch(''); setTfFilter('all') }}
-                className="mt-4 px-4 py-2 rounded-lg glass text-sm text-[#6e6e73] hover:text-[#1d1d1f] transition-all"
+                className="mt-4 px-4 py-2 rounded-lg glass text-sm text-[#5f5870] hover:text-[#241f38] transition-all"
               >
                 清除筛选
               </button>
@@ -199,31 +199,31 @@ export default function Skills() {
                 >
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div>
-                      <h2 className="text-xl font-bold text-[#1d1d1f] mb-1">{skill.name}</h2>
-                      <p className="text-sm text-[#6e6e73]">
+                      <h2 className="text-xl font-bold text-[#241f38] mb-1">{skill.name}</h2>
+                      <p className="text-sm text-[#5f5870]">
                         《{skill.book}》· {skill.author}
                       </p>
                     </div>
-                    <span className="shrink-0 text-xs px-2.5 py-1 rounded-full bg-black/[.04] text-[#86868b]">
+                    <span className="shrink-0 text-xs px-2.5 py-1 rounded-full bg-black/[.04] text-[#9990a8]">
                       {skill.items.length} 项
                     </span>
                   </div>
 
                   {skill.description && (
-                    <p className="text-sm text-[#86868b] mb-6 line-clamp-2">{skill.description}</p>
+                    <p className="text-sm text-[#9990a8] mb-6 line-clamp-2">{skill.description}</p>
                   )}
 
                   <div className="grid gap-4">
                     {skill.items.map((item, j) => (
                       <div key={j} className="p-4 rounded-xl bg-dark-card-hover/50 border border-dark-border">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-base font-bold text-[#1d1d1f]">{item.name}</h3>
+                          <h3 className="text-base font-bold text-[#241f38]">{item.name}</h3>
                         </div>
 
                         {item.steps && item.steps.length > 0 && (
                           <div className="flex flex-wrap gap-2 mb-2">
                             {item.steps.map((step, k) => (
-                              <span key={k} className="flex items-center gap-1 text-xs text-[#6e6e73]">
+                              <span key={k} className="flex items-center gap-1 text-xs text-[#5f5870]">
                                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 shrink-0" />
                                 {step}
                               </span>
@@ -232,12 +232,12 @@ export default function Skills() {
                         )}
 
                         {item.quote && (
-                          <p className="text-xs text-[#86868b] italic border-l-2 border-slate-700 pl-3 my-2 line-clamp-2">
+                          <p className="text-xs text-[#9990a8] italic border-l-2 border-slate-700 pl-3 my-2 line-clamp-2">
                             {item.quote}
                           </p>
                         )}
 
-                        <p className="text-[10px] text-[#86868b] mt-1">{item.source}</p>
+                        <p className="text-[10px] text-[#9990a8] mt-1">{item.source}</p>
                       </div>
                     ))}
                   </div>

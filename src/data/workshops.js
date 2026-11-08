@@ -215,7 +215,7 @@ export const seriesIntro = (() => {
     : n > 0
       ? '上一场已交付，材料可回看，下一期排期中'
       : '首场时间即将公布'
-  return `${lead}${mid}；其余全部开放投票——点「我支持」，支持数高的先开。想拆的在列表里没有？加微信 ikoning365 告诉我。`
+  return `${lead}${mid}；其余全部开放投票——点「我支持」，支持数高的先开。想拆的在列表里没有？加微信 happyannie626 告诉我。`
 })()
 
 export default workshops

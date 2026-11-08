@@ -30,7 +30,7 @@ export default function LearningPath() {
             <h1 className="text-4xl md:text-6xl font-black mb-4">
               <span className="gradient-text">拆书家成长之路</span>
             </h1>
-            <p className="text-lg text-[#6e6e73] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-[#5f5870] max-w-2xl mx-auto leading-relaxed">
               从零基础到三级拆书家：三级九拆 {officialSkillCount} 个官方技能点，逐项对照观察家记录表拆解。
               按你的节奏，走自己的拆书成长之路。
             </p>
@@ -66,15 +66,15 @@ export default function LearningPath() {
                         {level.range}
                       </span>
                     </div>
-                    <p className="text-[#6e6e73]">{level.subtitle}</p>
+                    <p className="text-[#5f5870]">{level.subtitle}</p>
                   </div>
                 </div>
 
-                <p className="text-sm text-[#6e6e73] mb-6 leading-relaxed">{level.desc}</p>
+                <p className="text-sm text-[#5f5870] mb-6 leading-relaxed">{level.desc}</p>
 
                 {/* Skills */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-3">
+                  <h3 className="text-xs font-bold text-[#5f5870] uppercase tracking-wider mb-3">
                     过级技能点 · {level.skills.length} 项
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-2">
@@ -84,7 +84,7 @@ export default function LearningPath() {
                         className="flex items-start gap-2 p-2.5 rounded-lg bg-dark-card/50 border border-dark-border"
                       >
                         <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${level.color} mt-2 shrink-0`} />
-                        <span className="text-sm text-[#6e6e73]">{skill}</span>
+                        <span className="text-sm text-[#5f5870]">{skill}</span>
                       </div>
                     ))}
                   </div>
@@ -109,10 +109,10 @@ export default function LearningPath() {
 
                 {/* Outcomes */}
                 <div className="mb-6">
-                  <h3 className="text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-3">学习成果</h3>
+                  <h3 className="text-xs font-bold text-[#5f5870] uppercase tracking-wider mb-3">学习成果</h3>
                   <div className="grid sm:grid-cols-2 gap-2">
                     {level.outcomes.map((outcome, j) => (
-                      <div key={j} className="flex items-start gap-2 text-sm text-[#6e6e73]">
+                      <div key={j} className="flex items-start gap-2 text-sm text-[#5f5870]">
                         <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 13l4 4L19 7" />
                         </svg>
@@ -138,7 +138,7 @@ export default function LearningPath() {
 
               {/* Arrow between levels */}
               <div className="flex justify-center py-3">
-                <svg className="w-6 h-6 text-[#86868b]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                <svg className="w-6 h-6 text-[#9990a8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
@@ -183,30 +183,30 @@ export default function LearningPath() {
 
                   {/* Pipeline */}
                   <div className="rounded-xl border border-violet-500/30 bg-violet-500/[.06] p-5 mb-6">
-                    <h3 className="text-sm font-bold text-[#1d1d1f] mb-4">用 RIA 拆 AI · 三步走</h3>
+                    <h3 className="text-sm font-bold text-[#241f38] mb-4">用 RIA 拆 AI · 三步走</h3>
                     <div className="grid sm:grid-cols-3 gap-3">
                       {ai.pipeline.map((step, j) => (
                         <div key={j} className="text-center">
                           <div className={`w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-r ${step.color} flex items-center justify-center`}>
                             <span className="text-white text-xs font-bold">{j + 1}</span>
                           </div>
-                          <p className="text-xs font-bold text-[#1d1d1f] mb-1">{step.name}</p>
-                          <p className="text-[12px] text-[#6e6e73] leading-relaxed">{step.desc}</p>
+                          <p className="text-xs font-bold text-[#241f38] mb-1">{step.name}</p>
+                          <p className="text-[12px] text-[#5f5870] leading-relaxed">{step.desc}</p>
                         </div>
                       ))}
                     </div>
 
                     {/* Five outputs flow */}
                     <div className="mt-5 pt-4 border-t border-violet-500/20">
-                      <p className="text-xs font-bold text-[#6e6e73] mb-3">I 匹配场景中跑通的五个产出例子，经 A 反思定制、持续进化：</p>
+                      <p className="text-xs font-bold text-[#5f5870] mb-3">I 匹配场景中跑通的五个产出例子，经 A 反思定制、持续进化：</p>
                       <div className="flex flex-wrap items-center justify-center gap-2">
                         {ai.outputs.map((o, j) => (
                           <span key={j} className="inline-flex items-center gap-2">
-                            <span title={o.desc} className="px-3 py-1.5 rounded-full border border-cyan-500/30 bg-white text-xs font-medium text-[#1d1d1f]">{o.name}</span>
-                            {j < ai.outputs.length - 1 && <span className="text-[#6e6e73] text-xs">→</span>}
+                            <span title={o.desc} className="px-3 py-1.5 rounded-full border border-cyan-500/30 bg-white text-xs font-medium text-[#241f38]">{o.name}</span>
+                            {j < ai.outputs.length - 1 && <span className="text-[#5f5870] text-xs">→</span>}
                           </span>
                         ))}
-                        <span className="text-[#6e6e73] text-xs">⤴ 反馈迭代</span>
+                        <span className="text-[#5f5870] text-xs">⤴ 反馈迭代</span>
                       </div>
                     </div>
                   </div>
@@ -230,7 +230,7 @@ export default function LearningPath() {
 
                   {/* Outcomes */}
                   <div className="mb-6">
-                    <h3 className="text-xs font-bold text-[#6e6e73] uppercase tracking-wider mb-3">学习成果</h3>
+                    <h3 className="text-xs font-bold text-[#5f5870] uppercase tracking-wider mb-3">学习成果</h3>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {ai.outcomes.map((outcome, j) => (
                         <div key={j} className="flex items-start gap-2 text-sm text-[#48484a]">
@@ -256,7 +256,7 @@ export default function LearningPath() {
                     </Link>
                     <a
                       href="/tf-assess/#ai"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass text-[#424245] text-sm font-medium hover:text-[#1d1d1f] transition-all border border-violet-500/20"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass text-[#4a4458] text-sm font-medium hover:text-[#241f38] transition-all border border-violet-500/20"
                     >
                       在线自评 · RIA 拆 AI
                     </a>

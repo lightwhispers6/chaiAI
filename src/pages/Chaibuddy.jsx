@@ -66,13 +66,13 @@ const DEFAULT_MODE = {
   why: '还没从简介里读到你的职业标签——最快的方式：来现场或线上参加一场共拆AI，边拆边定你的合作模式',
   href: '/workshops',
   cta: '看近期场次',
-  accent: 'text-[#6e6e73] border-slate-500/30 bg-slate-500/10',
+  accent: 'text-[#5f5870] border-slate-500/30 bg-slate-500/10',
 }
 const ALL_MODES = { ...MODES, start: DEFAULT_MODE }
 
 const CONTACT_URL = 'https://www.chaishubang.com/'
-const OWNER_MAIL = '554176937@qq.com'
-const OWNER_WX = 'ikoning365'
+const OWNER_MAIL = ''
+const OWNER_WX = 'happyannie626'
 const NEEDS_API = 'https://api.aibay.asia/needs/needs'
 
 // ===== 牵线弹窗表单 =====
@@ -96,7 +96,7 @@ function BrokerModal({ p, onClose }) {
   }, [onClose, state])
 
   const modeNames = picked.map(id => (ALL_MODES[id] ? ALL_MODES[id].full : '另有想法'))
-  const mailtoHref = `mailto:${OWNER_MAIL}?subject=${encodeURIComponent(`拆搭子合作牵线 · ${form.name.trim() || '（未署名）'}`)}&body=${encodeURIComponent(`杨辉你好，我是${form.name.trim()}${form.rudder.trim() ? `（${form.rudder.trim()}）` : ''}。\n\n想聊的合作模式：${modeNames.length ? modeNames.join('；') : '待定'}\n\n我的想法：${form.note.trim() || '（见面聊）'}\n\n我的联系方式：${form.contact.trim() || '（邮件回复即可）'}`)}`
+  const mailtoHref = `mailto:${OWNER_MAIL}?subject=${encodeURIComponent(`拆搭子合作牵线 · ${form.name.trim() || '（未署名）'}`)}&body=${encodeURIComponent(`annie你好，我是${form.name.trim()}${form.rudder.trim() ? `（${form.rudder.trim()}）` : ''}。\n\n想聊的合作模式：${modeNames.length ? modeNames.join('；') : '待定'}\n\n我的想法：${form.note.trim() || '（见面聊）'}\n\n我的联系方式：${form.contact.trim() || '（邮件回复即可）'}`)}`
 
   const submit = async e => {
     e.preventDefault()
@@ -132,57 +132,57 @@ function BrokerModal({ p, onClose }) {
         {state === 'ok' ? (
           <div className="p-8 text-center">
             <div className="w-14 h-14 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl">🤝</div>
-            <h3 className="text-lg font-black text-[#1d1d1f] mt-4">牵线卡已发出！</h3>
-            <p className="text-sm text-[#6e6e73] mt-2 leading-relaxed">
-              你的合作意向已发到站长邮箱（{OWNER_MAIL}），杨辉会通过你留的联系方式尽快回复你。
+            <h3 className="text-lg font-black text-[#241f38] mt-4">牵线卡已发出！</h3>
+            <p className="text-sm text-[#5f5870] mt-2 leading-relaxed">
+              你的合作意向已收到，annie 会通过你留的联系方式尽快回复你。
             </p>
-            <button type="button" onClick={onClose} className="mt-6 px-6 py-2.5 rounded-xl text-xs font-bold bg-[#1d1d1f] text-white hover:bg-[#3a3a3c] transition-colors">好的</button>
+            <button type="button" onClick={onClose} className="mt-6 px-6 py-2.5 rounded-xl text-xs font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">好的</button>
           </div>
         ) : (
           <form onSubmit={submit} className="p-6 md:p-8">
             <div className="flex items-start justify-between gap-3 mb-1">
-              <h3 className="text-lg font-black text-[#1d1d1f]">找站长牵线 🤝</h3>
-              <button type="button" onClick={onClose} className="text-[#86868b] hover:text-[#1d1d1f] text-lg leading-none" aria-label="关闭">✕</button>
+              <h3 className="text-lg font-black text-[#241f38]">找站长牵线 🤝</h3>
+              <button type="button" onClick={onClose} className="text-[#9990a8] hover:text-[#241f38] text-lg leading-none" aria-label="关闭">✕</button>
             </div>
-            <p className="text-xs text-[#6e6e73] mb-5">
-              {isPerson ? '已按你的名片预填，补上联系方式和想法即可发送' : '填一张合作意向卡，站长收到邮件后直接联系你'}
+            <p className="text-xs text-[#5f5870] mb-5">
+              {isPerson ? '已按你的名片预填，补上联系方式和想法即可发送' : '填一张合作意向卡，annie 收到后直接联系你'}
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
               <label className="flex flex-col gap-1">
-                <span className="text-[11px] font-bold text-[#1d1d1f]">名字</span>
-                <input value={form.name} onChange={set('name')} maxLength={30} className="rounded-xl bg-[#f5f5f7] px-3.5 py-2.5 text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="你的名字" />
+                <span className="text-[11px] font-bold text-[#241f38]">名字</span>
+                <input value={form.name} onChange={set('name')} maxLength={30} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="你的名字" />
               </label>
               <label className="flex flex-col gap-1">
-                <span className="text-[11px] font-bold text-[#1d1d1f]">分舵</span>
-                <input value={form.rudder} onChange={set('rudder')} maxLength={30} className="rounded-xl bg-[#f5f5f7] px-3.5 py-2.5 text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="如：广州小蛮腰分舵" />
+                <span className="text-[11px] font-bold text-[#241f38]">分舵</span>
+                <input value={form.rudder} onChange={set('rudder')} maxLength={30} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="如：广州小蛮腰分舵" />
               </label>
             </div>
 
             <div className="mb-3">
-              <span className="text-[11px] font-bold text-[#1d1d1f]">想聊的合作模式 <span className="text-[#86868b] font-normal">（可多选）</span></span>
+              <span className="text-[11px] font-bold text-[#241f38]">想聊的合作模式 <span className="text-[#9990a8] font-normal">（可多选）</span></span>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {Object.entries(MODES).map(([id, m]) => (
                   <button type="button" key={id} onClick={() => toggle(id)}
-                    className={`px-2.5 py-1.5 rounded-full text-[11px] font-bold border transition-colors ${picked.includes(id) ? 'bg-amber-500/15 text-amber-600 border-amber-500/50' : 'bg-black/[.03] text-[#6e6e73] border-black/10 hover:border-black/25'}`}>
+                    className={`px-2.5 py-1.5 rounded-full text-[11px] font-bold border transition-colors ${picked.includes(id) ? 'bg-amber-500/15 text-amber-600 border-amber-500/50' : 'bg-black/[.03] text-[#5f5870] border-black/10 hover:border-black/25'}`}>
                     {picked.includes(id) ? '✓ ' : ''}{m.name}
                   </button>
                 ))}
                 <button type="button" onClick={() => toggle('other')}
-                  className={`px-2.5 py-1.5 rounded-full text-[11px] font-bold border transition-colors ${picked.includes('other') ? 'bg-amber-500/15 text-amber-600 border-amber-500/50' : 'bg-black/[.03] text-[#6e6e73] border-black/10 hover:border-black/25'}`}>
+                  className={`px-2.5 py-1.5 rounded-full text-[11px] font-bold border transition-colors ${picked.includes('other') ? 'bg-amber-500/15 text-amber-600 border-amber-500/50' : 'bg-black/[.03] text-[#5f5870] border-black/10 hover:border-black/25'}`}>
                   {picked.includes('other') ? '✓ ' : ''}另有想法
                 </button>
               </div>
             </div>
 
             <label className="flex flex-col gap-1 mb-3">
-              <span className="text-[11px] font-bold text-[#1d1d1f]">联系方式 <span className="text-rose-500">*</span></span>
-              <input value={form.contact} onChange={set('contact')} maxLength={60} className="rounded-xl bg-[#f5f5f7] px-3.5 py-2.5 text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="微信号 / 手机号 / 邮箱（站长通过它联系你）" />
+              <span className="text-[11px] font-bold text-[#241f38]">联系方式 <span className="text-rose-500">*</span></span>
+              <input value={form.contact} onChange={set('contact')} maxLength={60} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="微信号 / 手机号 / 邮箱（站长通过它联系你）" />
             </label>
 
             <label className="flex flex-col gap-1 mb-4">
-              <span className="text-[11px] font-bold text-[#1d1d1f]">想说的话 <span className="text-[#86868b] font-normal">（可不填）</span></span>
-              <textarea value={form.note} onChange={set('note')} maxLength={300} rows={3} className="rounded-xl bg-[#f5f5f7] px-3.5 py-2.5 text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-amber-500/40 resize-none" placeholder="一句话介绍你自己 / 你想怎么合作 / 你的疑问……" />
+              <span className="text-[11px] font-bold text-[#241f38]">想说的话 <span className="text-[#9990a8] font-normal">（可不填）</span></span>
+              <textarea value={form.note} onChange={set('note')} maxLength={300} rows={3} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40 resize-none" placeholder="一句话介绍你自己 / 你想怎么合作 / 你的疑问……" />
             </label>
 
             {state === 'error' && (
@@ -193,12 +193,12 @@ function BrokerModal({ p, onClose }) {
             )}
 
             <div className="flex items-center gap-3">
-              <button type="submit" disabled={state === 'sending'} className="flex-1 px-5 py-3 rounded-xl text-sm font-bold bg-[#1d1d1f] text-white hover:bg-[#3a3a3c] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={state === 'sending'} className="flex-1 px-5 py-3 rounded-xl text-sm font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors disabled:opacity-50">
                 {state === 'sending' ? '发送中…' : '发送牵线卡 ✉️'}
               </button>
-              <a href={mailtoHref} className="px-4 py-3 rounded-xl text-xs font-medium text-[#6e6e73] hover:text-[#1d1d1f] underline underline-offset-2 whitespace-nowrap">改用邮件</a>
+              <a href={mailtoHref} className="px-4 py-3 rounded-xl text-xs font-medium text-[#5f5870] hover:text-[#241f38] underline underline-offset-2 whitespace-nowrap">改用邮件</a>
             </div>
-            <p className="text-[10px] text-[#86868b] mt-3 text-center">直接发到站长邮箱 {OWNER_MAIL} · 不自动群发、不留存名录</p>
+            <p className="text-[10px] text-[#9990a8] mt-3 text-center">直接发到站长邮箱 {OWNER_MAIL} · 不自动群发、不留存名录</p>
           </form>
         )}
       </div>
@@ -214,19 +214,19 @@ function PersonCard({ p, highlight = false, onBroker, onFind }) {
       <div className="flex items-start justify-between gap-3 flex-wrap">
         <div className="min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-lg font-black text-[#1d1d1f]">{p.n}</h3>
+            <h3 className="text-lg font-black text-[#241f38]">{p.n}</h3>
             {(p.t || []).map(t => (
               <span key={t} className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-600 border border-amber-500/25">{t}</span>
             ))}
           </div>
-          <p className="text-xs text-[#6e6e73] mt-1">
+          <p className="text-xs text-[#5f5870] mt-1">
             认证拆书家 · {p.r}{p.c ? ` · ${p.c}` : ''}
           </p>
           {(p.sf || (p.td && p.td.length > 0)) && null}
         </div>
       </div>
 
-      {p.d && <p className="text-xs text-[#6e6e73] leading-relaxed mt-3 line-clamp-3">{p.d}</p>}
+      {p.d && <p className="text-xs text-[#5f5870] leading-relaxed mt-3 line-clamp-3">{p.d}</p>}
 
       <div className="mt-4 space-y-2">
         {modes.map(m => (
@@ -245,13 +245,13 @@ function PersonCard({ p, highlight = false, onBroker, onFind }) {
       </div>
 
       <div className="mt-4 pt-3 border-t border-black/5 flex items-center justify-between gap-2 flex-wrap">
-        <p className="text-[10px] text-[#86868b]">
+        <p className="text-[10px] text-[#9990a8]">
           {p.e ? `邮箱 ${p.e}` : ''}{p.e && p.w ? ' · ' : ''}{p.w ? `微信 ${p.w}` : ''}
           {p.e || p.w ? '（防爬虫已打码）' : ''}
         </p>
         <div className="flex items-center gap-2">
-          <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#86868b] hover:text-[#0071e3] underline underline-offset-2">官网查询</a>
-          <button type="button" onClick={() => onBroker(p)} className="px-3 py-1.5 rounded-lg text-[10px] font-bold bg-[#1d1d1f] text-white hover:bg-[#3a3a3c] transition-colors">找站长牵线</button>
+          <a href={CONTACT_URL} target="_blank" rel="noopener noreferrer" className="text-[10px] text-[#9990a8] hover:text-[#6c60cc] underline underline-offset-2">官网查询</a>
+          <button type="button" onClick={() => onBroker(p)} className="px-3 py-1.5 rounded-lg text-[10px] font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">找站长牵线</button>
         </div>
       </div>
     </div>
@@ -368,7 +368,7 @@ const categories = [
   {
     id: '教练指导', title: '教练指导',
     subtitle: '高绩效教练 · 提问的威力 · 教练式沟通',
-    color: 'from-cyan-600 to-teal-500', text: 'text-[#0071e3]', border: 'border-cyan-500/30', bg: 'bg-cyan-500/10',
+    color: 'from-cyan-600 to-teal-500', text: 'text-[#6c60cc]', border: 'border-cyan-500/30', bg: 'bg-cyan-500/10',
     books: ['高绩效教练', '提问的威力：教练问题全清单', '教练式沟通'],
   },
   {
@@ -462,7 +462,7 @@ export default function Chaibuddy() {
   // 信息图分组（原画廊）
   const byCategory = {}
   for (const cat of categories) byCategory[cat.id] = { cat, items: [] }
-  byCategory['其他'] = { cat: { id: '其他', title: '其他', color: 'from-slate-600 to-slate-400', text: 'text-[#6e6e73]', border: 'border-slate-500/30', bg: 'bg-slate-500/10' }, items: [] }
+  byCategory['其他'] = { cat: { id: '其他', title: '其他', color: 'from-slate-600 to-slate-400', text: 'text-[#5f5870]', border: 'border-slate-500/30', bg: 'bg-slate-500/10' }, items: [] }
   for (const pack of skills) {
     const catId = getBookCategory(pack.book)
     const target = byCategory[catId] || byCategory['其他']
@@ -478,12 +478,12 @@ export default function Chaibuddy() {
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/20 text-amber-500 text-sm">
             拆书帮全名录 · 83 分舵 · {people.length ? people.length.toLocaleString() : '5473'} 位拆书家 · 共拆AI 找搭子
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-[#1d1d1f] mb-3">chai buddy · 找到你的共拆AI搭子</h1>
-          <p className="text-[#6e6e73] max-w-2xl mx-auto leading-relaxed">
-            我们不做「又一个读书会」。我们把拆书帮每一位拆书家的<b className="text-[#1d1d1f]">职业与兴趣标签</b>读出来，
-            对到六种<b className="text-[#1d1d1f]">共拆AI合作模式</b>上——你进来搜到自己，就知道怎么跟我们合作。
+          <h1 className="text-3xl md:text-5xl font-black text-[#241f38] mb-3">chai buddy · 找到你的共拆AI搭子</h1>
+          <p className="text-[#5f5870] max-w-2xl mx-auto leading-relaxed">
+            我们不做「又一个读书会」。我们把拆书帮每一位拆书家的<b className="text-[#241f38]">职业与兴趣标签</b>读出来，
+            对到六种<b className="text-[#241f38]">共拆AI合作模式</b>上——你进来搜到自己，就知道怎么跟我们合作。
           </p>
-          <div className="flex items-center justify-center gap-2 flex-wrap mt-5 text-xs text-[#86868b]">
+          <div className="flex items-center justify-center gap-2 flex-wrap mt-5 text-xs text-[#9990a8]">
             <span className="px-3 py-1.5 rounded-full glass border border-white/10">① 搜你的名字 / 分舵 / 职业</span>
             <span>→</span>
             <span className="px-3 py-1.5 rounded-full glass border border-white/10">② 看你被推荐的协作模式</span>
@@ -498,21 +498,21 @@ export default function Chaibuddy() {
         <div ref={searchBoxRef} className="glass rounded-2xl border border-amber-500/25 p-6 md:p-8 relative overflow-hidden">
           <div className="absolute -top-16 -right-16 w-56 h-56 bg-amber-500/10 rounded-full blur-[70px]" />
           <div className="relative z-10">
-            <h2 className="text-xl md:text-2xl font-black text-[#1d1d1f] mb-1">找到你自己 🔍</h2>
-            <p className="text-xs text-[#6e6e73] mb-4">输入名字、分舵、城市或职业关键词（如「广州」「培训」「心理」）——看看系统为这位搭子推荐的合作模式</p>
+            <h2 className="text-xl md:text-2xl font-black text-[#241f38] mb-1">找到你自己 🔍</h2>
+            <p className="text-xs text-[#5f5870] mb-4">输入名字、分舵、城市或职业关键词（如「广州」「培训」「心理」）——看看系统为这位搭子推荐的合作模式</p>
             <div className="flex items-center gap-2">
               <div className="flex-1 flex items-center gap-2 bg-white/70 border border-black/10 rounded-xl px-4 py-3 focus-within:border-amber-500/50 transition-colors">
-                <svg className="w-4 h-4 text-[#86868b] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-[#9990a8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <input
                   value={q}
                   onChange={e => setQ(e.target.value)}
                   placeholder="名字 / 分舵 / 城市 / 职业兴趣…"
-                  className="w-full bg-transparent outline-none text-sm text-[#1d1d1f] placeholder:text-[#86868b]"
+                  className="w-full bg-transparent outline-none text-sm text-[#241f38] placeholder:text-[#9990a8]"
                 />
                 {q && (
-                  <button onClick={() => setQ('')} className="text-xs text-[#86868b] hover:text-[#1d1d1f] shrink-0">清空</button>
+                  <button onClick={() => setQ('')} className="text-xs text-[#9990a8] hover:text-[#241f38] shrink-0">清空</button>
                 )}
               </div>
             </div>
@@ -523,17 +523,17 @@ export default function Chaibuddy() {
               </div>
             )}
             {!data && !loadErr && (
-              <div className="mt-6 text-center text-sm text-[#86868b]">正在加载拆书帮全量名录（约 1MB）…</div>
+              <div className="mt-6 text-center text-sm text-[#9990a8]">正在加载拆书帮全量名录（约 1MB）…</div>
             )}
 
             {found && (
               <div className="mt-6">
-                <p className="text-xs text-[#6e6e73] mb-3">
-                  找到 <b className="text-[#1d1d1f]">{found.length}</b> 位搭子
-                  {found.length > 0 && <>，其中 <b className="text-[#1d1d1f]">{found.filter(p => p.m && p.m.length).length}</b> 位已有明确推荐</>}
+                <p className="text-xs text-[#5f5870] mb-3">
+                  找到 <b className="text-[#241f38]">{found.length}</b> 位搭子
+                  {found.length > 0 && <>，其中 <b className="text-[#241f38]">{found.filter(p => p.m && p.m.length).length}</b> 位已有明确推荐</>}
                 </p>
                 {found.length === 0 ? (
-                  <div className="glass rounded-xl border border-white/10 p-6 text-center text-sm text-[#6e6e73]">
+                  <div className="glass rounded-xl border border-white/10 p-6 text-center text-sm text-[#5f5870]">
                     没搜到这位搭子——名录只覆盖拆书帮官网公开的拆书家（{people.length} 位）。
                     你可能还没在官网认证，没关系：直接看下面六种合作模式，挑一个找站长聊。
                   </div>
@@ -541,7 +541,7 @@ export default function Chaibuddy() {
                   <div className="grid md:grid-cols-2 gap-4">
                     {found.slice(0, 12).map(p => <PersonCard key={p.i} p={p} highlight onBroker={openBroker} onFind={handleFind} />)}
                     {found.length > 12 && (
-                      <div className="glass rounded-2xl border border-white/10 p-6 text-center text-xs text-[#86868b] flex items-center justify-center">
+                      <div className="glass rounded-2xl border border-white/10 p-6 text-center text-xs text-[#9990a8] flex items-center justify-center">
                         还有 {found.length - 12} 位，去下方名录里按条件筛选查看 →
                       </div>
                     )}
@@ -551,10 +551,10 @@ export default function Chaibuddy() {
             )}
             {data && !q && (
               <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">{people.length.toLocaleString()}</div><div className="text-[10px] text-[#86868b]">拆书家在册</div></div>
-                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">{recCount.toLocaleString()}</div><div className="text-[10px] text-[#86868b]">已有合作推荐</div></div>
-                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">83</div><div className="text-[10px] text-[#86868b]">分舵覆盖</div></div>
-                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">6</div><div className="text-[10px] text-[#86868b]">合作模式</div></div>
+                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">{people.length.toLocaleString()}</div><div className="text-[10px] text-[#9990a8]">拆书家在册</div></div>
+                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">{recCount.toLocaleString()}</div><div className="text-[10px] text-[#9990a8]">已有合作推荐</div></div>
+                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">83</div><div className="text-[10px] text-[#9990a8]">分舵覆盖</div></div>
+                <div className="glass rounded-xl border border-white/10 p-3"><div className="text-xl font-black text-amber-500">6</div><div className="text-[10px] text-[#9990a8]">合作模式</div></div>
               </div>
             )}
           </div>
@@ -563,8 +563,8 @@ export default function Chaibuddy() {
 
       {/* ===== 合作模式总览 ===== */}
       <section className="max-w-6xl mx-auto px-4 mb-14">
-        <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1f] mb-2">六种共拆AI合作模式</h2>
-        <p className="text-sm text-[#6e6e73] mb-6">不看拆书家头衔，看你<b className="text-[#1d1d1f]">拆书之外</b>的职业与兴趣——每一种模式都对应本站一个已经在跑的真实项目</p>
+        <h2 className="text-2xl md:text-3xl font-black text-[#241f38] mb-2">六种共拆AI合作模式</h2>
+        <p className="text-sm text-[#5f5870] mb-6">不看拆书家头衔，看你<b className="text-[#241f38]">拆书之外</b>的职业与兴趣——每一种模式都对应本站一个已经在跑的真实项目</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(MODES).map(([id, m], i) => (
             <motion.div
@@ -576,8 +576,8 @@ export default function Chaibuddy() {
               className={`glass rounded-2xl border p-5 ${m.accent.split(' ')[1]} hover:-translate-y-0.5 transition-transform`}
             >
               <div className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold border mb-3 ${m.accent}`}>{m.name}</div>
-              <h3 className="text-base font-black text-[#1d1d1f] mb-2">{m.full}</h3>
-              <p className="text-xs text-[#6e6e73] leading-relaxed mb-3">{m.why}</p>
+              <h3 className="text-base font-black text-[#241f38] mb-2">{m.full}</h3>
+              <p className="text-xs text-[#5f5870] leading-relaxed mb-3">{m.why}</p>
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div className="flex flex-wrap gap-1">
                   {m.tags.map(t => <span key={t} className="px-1.5 py-0.5 rounded text-[10px] bg-black/[.05] text-[#48484a]">{t}</span>)}
@@ -591,28 +591,28 @@ export default function Chaibuddy() {
 
       {/* ===== 全员名录 ===== */}
       <section className="max-w-6xl mx-auto px-4 mb-14">
-        <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1f] mb-2">拆书家全员名录</h2>
-        <p className="text-sm text-[#6e6e73] mb-5">
+        <h2 className="text-2xl md:text-3xl font-black text-[#241f38] mb-2">拆书家全员名录</h2>
+        <p className="text-sm text-[#5f5870] mb-5">
           数据来自拆书帮官网公开名录（{data ? data.meta.generated : '2026-11-04'} 采集，{people.length.toLocaleString()} 人去重），本页为非官方学习研究整理。联系方式已脱敏（邮箱/微信打码），不做二次分发；如有异议请联系站长核实移除。
         </p>
         <div className="glass rounded-2xl border border-white/10 p-4 md:p-5 mb-5 flex items-end gap-3 flex-wrap">
-          <label className="flex flex-col gap-1 text-[10px] text-[#86868b]">
+          <label className="flex flex-col gap-1 text-[10px] text-[#9990a8]">
             城市
-            <select value={city} onChange={e => { setCity(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#1d1d1f] min-w-24">
+            <select value={city} onChange={e => { setCity(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#241f38] min-w-24">
               <option value="">全部</option>
               {cities.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
           </label>
-          <label className="flex flex-col gap-1 text-[10px] text-[#86868b]">
+          <label className="flex flex-col gap-1 text-[10px] text-[#9990a8]">
             分舵
-            <select value={rudder} onChange={e => { setRudder(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#1d1d1f] min-w-36">
+            <select value={rudder} onChange={e => { setRudder(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#241f38] min-w-36">
               <option value="">全部</option>
               {rudders.map(r => <option key={r} value={r}>{r}</option>)}
             </select>
           </label>
-          <label className="flex flex-col gap-1 text-[10px] text-[#86868b]">
+          <label className="flex flex-col gap-1 text-[10px] text-[#9990a8]">
             标签
-            <select value={tag} onChange={e => { setTag(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#1d1d1f] min-w-28">
+            <select value={tag} onChange={e => { setTag(e.target.value); setPage(1) }} className="bg-white/70 border border-black/10 rounded-lg px-3 py-2 text-xs text-[#241f38] min-w-28">
               <option value="">全部</option>
               {tags.map(t => <option key={t} value={t}>{t}</option>)}
             </select>
@@ -621,8 +621,8 @@ export default function Chaibuddy() {
             <input type="checkbox" checked={onlyRec} onChange={e => { setOnlyRec(e.target.checked); setPage(1) }} className="accent-amber-500 w-4 h-4" />
             只看有合作推荐的
           </label>
-          <div className="ml-auto text-xs text-[#86868b] pb-2">
-            筛出 <b className="text-[#1d1d1f]">{filtered.length.toLocaleString()}</b> 人 · 第 {safePage}/{totalPages} 页
+          <div className="ml-auto text-xs text-[#9990a8] pb-2">
+            筛出 <b className="text-[#241f38]">{filtered.length.toLocaleString()}</b> 人 · 第 {safePage}/{totalPages} 页
           </div>
         </div>
 
@@ -637,10 +637,10 @@ export default function Chaibuddy() {
               .filter(n => n === 1 || n === totalPages || Math.abs(n - safePage) <= 2)
               .map((n, idx, arr) => (
                 <span key={n} className="flex items-center">
-                  {idx > 0 && n - arr[idx - 1] > 1 && <span className="px-1 text-xs text-[#86868b]">…</span>}
+                  {idx > 0 && n - arr[idx - 1] > 1 && <span className="px-1 text-xs text-[#9990a8]">…</span>}
                   <button
                     onClick={() => setPage(n)}
-                    className={`w-8 h-8 rounded-lg text-xs transition-colors ${n === safePage ? 'bg-[#1d1d1f] text-white font-bold' : 'glass border border-white/10 hover:border-white/30'}`}
+                    className={`w-8 h-8 rounded-lg text-xs transition-colors ${n === safePage ? 'bg-[#241f38] text-white font-bold' : 'glass border border-white/10 hover:border-white/30'}`}
                   >
                     {n}
                   </button>
@@ -653,8 +653,8 @@ export default function Chaibuddy() {
 
       {/* ===== 共拆AI 项目阵地（原共拆AI画廊下移）===== */}
       <section id="gallery" className="max-w-6xl mx-auto px-4 scroll-mt-24">
-        <h2 className="text-2xl md:text-3xl font-black text-[#1d1d1f] mb-2">共拆AI 项目阵地</h2>
-        <p className="text-sm text-[#6e6e73] mb-6">上面六种合作模式对应的真实资产都在这里——开放的共拆共创阵地，每个项目都可以直接参与和复用</p>
+        <h2 className="text-2xl md:text-3xl font-black text-[#241f38] mb-2">共拆AI 项目阵地</h2>
+        <p className="text-sm text-[#5f5870] mb-6">上面六种合作模式对应的真实资产都在这里——开放的共拆共创阵地，每个项目都可以直接参与和复用</p>
         <div className="space-y-6">
           {projects.map((p, pi) => (
             <motion.div
@@ -668,19 +668,19 @@ export default function Chaibuddy() {
               <div className={`absolute -top-20 -right-20 w-64 h-64 ${p.accent.glow} rounded-full blur-[80px]`} />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 flex-wrap mb-3">
-                  <h3 className="text-xl md:text-2xl font-black text-[#1d1d1f]">{p.name}</h3>
+                  <h3 className="text-xl md:text-2xl font-black text-[#241f38]">{p.name}</h3>
                   <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${p.accent.bg} ${p.accent.text} border ${p.accent.border}`}>{p.tag}</span>
-                  <span className="px-2.5 py-0.5 rounded-full text-xs bg-black/[.06] text-[#6e6e73]">{p.status}</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-xs bg-black/[.06] text-[#5f5870]">{p.status}</span>
                 </div>
-                <p className="text-sm text-[#6e6e73] leading-relaxed max-w-3xl mb-4">{p.desc}</p>
+                <p className="text-sm text-[#5f5870] leading-relaxed max-w-3xl mb-4">{p.desc}</p>
                 <div className="flex items-center gap-2 flex-wrap mb-4">
                   {p.stats.map(s => (
                     <span key={s} className={`px-2 py-0.5 rounded text-[11px] font-medium ${p.accent.bg} ${p.accent.text}`}>{s}</span>
                   ))}
                 </div>
                 {p.updated && (
-                  <p className="text-xs text-[#6e6e73] mb-4 flex items-center gap-1.5 flex-wrap">
-                    <span className="px-1.5 py-0.5 rounded bg-black/[.05] text-[10px] font-bold text-[#86868b]">最新更新 {p.updated.date}</span>
+                  <p className="text-xs text-[#5f5870] mb-4 flex items-center gap-1.5 flex-wrap">
+                    <span className="px-1.5 py-0.5 rounded bg-black/[.05] text-[10px] font-bold text-[#9990a8]">最新更新 {p.updated.date}</span>
                     <span>{p.updated.text}</span>
                   </p>
                 )}
@@ -694,7 +694,7 @@ export default function Chaibuddy() {
                         rel="noopener noreferrer"
                         className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-medium transition-all ${
                           l.primary
-                            ? 'bg-[#1d1d1f] text-white hover:bg-[#3a3a3c]'
+                            ? 'bg-[#241f38] text-white hover:bg-[#3a3a3c]'
                             : `glass ${p.accent.text} border ${p.accent.border} hover:border-white/40`
                         }`}
                       >
@@ -750,7 +750,7 @@ export default function Chaibuddy() {
                       <h3 className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${cat.color} bg-clip-text text-transparent`}>
                         {cat.title}
                       </h3>
-                      <p className="text-xs text-[#86868b] mt-1 max-w-2xl line-clamp-1">{cat.subtitle}</p>
+                      <p className="text-xs text-[#9990a8] mt-1 max-w-2xl line-clamp-1">{cat.subtitle}</p>
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
@@ -769,10 +769,10 @@ export default function Chaibuddy() {
                         <div className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold ${cat.bg} ${cat.text}`}>
                           {'拆书'}
                         </div>
-                        <h4 className="text-sm font-bold text-[#1d1d1f] mt-2 mb-1 group-hover:text-[#0071e3] transition-colors line-clamp-2">
+                        <h4 className="text-sm font-bold text-[#241f38] mt-2 mb-1 group-hover:text-[#6c60cc] transition-colors line-clamp-2">
                           {item.name}
                         </h4>
-                        <p className="text-[10px] text-[#86868b] line-clamp-1">
+                        <p className="text-[10px] text-[#9990a8] line-clamp-1">
                           《{item.book}》
                         </p>
                         <div className="mt-2 flex items-center gap-1 text-[10px] text-amber-400/60 group-hover:text-amber-400 transition-colors">
@@ -796,15 +796,15 @@ export default function Chaibuddy() {
         <div className="glass rounded-2xl border border-amber-500/25 p-6 md:p-8 text-center relative overflow-hidden">
           <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px]" />
           <div className="relative z-10">
-            <h2 className="text-xl md:text-2xl font-black text-[#1d1d1f] mb-2">没找到你？或者模式都对不上？</h2>
-            <p className="text-sm text-[#6e6e73] mb-5 max-w-xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-black text-[#241f38] mb-2">没找到你？或者模式都对不上？</h2>
+            <p className="text-sm text-[#5f5870] mb-5 max-w-xl mx-auto">
               名录以拆书帮官网公开数据为准；合作模式也随时欢迎你提出第七种。加站长微信或邮件，聊 15 分钟就能定。
             </p>
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <button
                 type="button"
                 onClick={() => setBroker({})}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#1d1d1f] text-white hover:bg-[#3a3a3c] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors"
               >
                 🤝 填一张合作意向卡
               </button>

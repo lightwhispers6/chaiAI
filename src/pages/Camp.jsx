@@ -46,12 +46,12 @@ export default function Camp() {
           <section className="px-4 pt-14 pb-10">
             <div className="max-w-4xl mx-auto text-center">
               <div className="eyebrow mb-4">线上 · 拆AI营</div>
-              <h1 className="text-[34px] sm:text-[44px] font-bold text-[#f5f5f7] tracking-tight leading-tight mb-5">
+              <h1 className="text-[34px] sm:text-[44px] font-bold text-[#f5f1e8] tracking-tight leading-tight mb-5">
                 拆AI营 · 三个版块<br />每版块带走一个真原型
               </h1>
               <p className="text-[16px] text-[#a1a1c2] leading-relaxed max-w-2xl mx-auto">
                 拆的是 AI，拆为己用。工作流 / 工作台 / 量化三个版块，目标不是听课，
-                是<b className="text-[#f5f5f7]">验证你自己的原型</b>——想深入，再走 Loong FDE 实现路径；
+                是<b className="text-[#f5f1e8]">验证你自己的原型</b>——想深入，再走 Loong FDE 实现路径；
                 想随身带，AI 手机开机即用。
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function Camp() {
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-[24px]">{t.emoji}</span>
-                    <h2 className="text-[20px] font-bold text-[#f5f5f7]">{t.name}</h2>
+                    <h2 className="text-[20px] font-bold text-[#f5f1e8]">{t.name}</h2>
                     <span className="text-[13px] text-[#8e8e93] ml-auto hidden sm:block">{t.tagline}</span>
                   </div>
                   <p className="text-[14px] text-[#a1a1c2] leading-relaxed mb-4">{t.desc}</p>
@@ -82,7 +82,7 @@ export default function Camp() {
                       </a>
                     ))}
                   </div>
-                  <div className="text-[13px] text-[#6e6e73]">🎯 {t.outcome}</div>
+                  <div className="text-[13px] text-[#5f5870]">🎯 {t.outcome}</div>
                 </motion.div>
               ))}
             </div>
@@ -91,18 +91,18 @@ export default function Camp() {
           <section className="px-4 pb-16">
             <div className="max-w-4xl mx-auto text-center">
               <div className="rounded-2xl bg-white/[.04] border border-white/[.08] p-8">
-                <h3 className="text-[20px] font-bold text-[#f5f5f7] mb-3">怎么加入</h3>
+                <h3 className="text-[20px] font-bold text-[#f5f1e8] mb-3">怎么加入</h3>
                 <p className="text-[14px] text-[#a1a1c2] leading-relaxed mb-2">
                   每周三晚线上开拆（腾讯会议），单次 90 分钟。三个版块轮着拆，
                   公众号每篇文章就是当周预告。
                 </p>
-                <p className="text-[13px] text-[#6e6e73] mb-6">
-                  关注公众号「AI创新增长杨教练」看每周拆什么 · 加微信 ikoning365 备注「拆AI营」占座
+                <p className="text-[13px] text-[#5f5870] mb-6">
+                  加微信 happyannie626 备注「拆课」，看你手里那本怎么拆
                 </p>
-                <button type="button" onClick={() => { try { navigator.clipboard?.writeText('ikoning365') } catch (e) {} }}
-                  className="btn-primary" title="点击复制微信号">复制微信号 ikoning365 📋</button>
+                <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }}
+                  className="btn-primary" title="点击复制微信号">复制微信号 happyannie626 📋</button>
               </div>
-              <p className="text-[12px] text-[#6e6e73] mt-6">
+              <p className="text-[12px] text-[#5f5870] mt-6">
                 原型跑通想深做？<a href="https://www.aibay.asia/#partner" className="text-[#2997ff] hover:underline">Loong FDE 实现路径 ↗</a>
                 &nbsp;·&nbsp;想随身带走？<a href="https://www.aibay.asia/#phone" className="text-[#2997ff] hover:underline">AI 手机开机即用 ↗</a>
               </p>

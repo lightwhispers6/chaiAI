@@ -31,8 +31,13 @@ export default function Navbar() {
       scrolled || menuOpen ? 'bg-white/80 backdrop-blur-xl backdrop-saturate-150 border-b border-black/[.06]' : 'bg-white/60 backdrop-blur-md'
     }`}>
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-[19px] font-bold tracking-tight text-[#1d1d1f]">小蛮腰·拆AI</span>
+        <Link to="/" className="flex items-center gap-2.5">
+          <img
+            src="/images/logo-mark.png"
+            alt="拆书成课"
+            className="h-9 w-auto"
+          />
+          <span className="text-[19px] font-bold tracking-tight text-[#241f38]">拆书成课</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-1">
@@ -40,7 +45,7 @@ export default function Navbar() {
             <a
               key={link.path}
               href={link.path}
-              className="px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-all duration-200 text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-black/[.04]"
+              className="px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-all duration-200 text-[#5f5870] hover:text-[#241f38] hover:bg-black/[.04]"
             >
               {link.label}
             </a>
@@ -50,8 +55,8 @@ export default function Navbar() {
               to={link.path}
               className={`px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-all duration-200 ${
                 location.pathname === link.path
-                  ? 'bg-black/[.05] text-[#1d1d1f]'
-                  : 'text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-black/[.04]'
+                  ? 'bg-black/[.05] text-[#241f38]'
+                  : 'text-[#5f5870] hover:text-[#241f38] hover:bg-black/[.04]'
               }`}
             >
               {link.label}
@@ -59,20 +64,20 @@ export default function Navbar() {
           ))}
           <a
             href={nx ? nx.link : '/workshops'}
-            className="ml-2 px-4 py-1.5 rounded-full text-[13.5px] font-semibold bg-[#0071e3] text-white hover:bg-[#0077ed] transition-colors shadow-[0_4px_14px_rgba(0,113,227,.3)]"
+            className="ml-2 px-4 py-1.5 rounded-full text-[13.5px] font-semibold bg-[#6c60cc] text-white hover:bg-[#7d72d6] transition-colors shadow-[0_4px_14px_rgba(108,96,204,.3)]"
           >
             {nx ? '报名工作坊' : '课程回看'}
           </a>
         </div>
 
         <div className="flex items-center gap-1.5 md:hidden">
-          <a href={nx ? nx.link : '/workshops'} className="px-3.5 py-1.5 rounded-full text-[13px] font-semibold bg-[#0071e3] text-white">{nx ? '报名' : '回看'}</a>
+          <a href={nx ? nx.link : '/workshops'} className="px-3.5 py-1.5 rounded-full text-[13px] font-semibold bg-[#6c60cc] text-white">{nx ? '报名' : '回看'}</a>
           <button
             type="button"
             aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(v => !v)}
-            className="p-2.5 -mr-1.5 rounded-full text-[#1d1d1f] hover:bg-black/[.05] active:bg-black/[.08] transition-colors"
+            className="p-2.5 -mr-1.5 rounded-full text-[#241f38] hover:bg-black/[.05] active:bg-black/[.08] transition-colors"
           >
             {menuOpen ? (
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,7 +99,7 @@ export default function Navbar() {
               <a
                 key={link.path}
                 href={link.path}
-                className="py-3 text-[15px] font-medium text-[#6e6e73] border-b border-black/[.04] last:border-0 active:text-[#1d1d1f]"
+                className="py-3 text-[15px] font-medium text-[#5f5870] border-b border-black/[.04] last:border-0 active:text-[#241f38]"
               >
                 {link.label}
               </a>
@@ -105,8 +110,8 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={`py-3 text-[15px] border-b border-black/[.04] last:border-0 ${
                   location.pathname === link.path
-                    ? 'text-[#1d1d1f] font-semibold'
-                    : 'text-[#6e6e73] font-medium'
+                    ? 'text-[#241f38] font-semibold'
+                    : 'text-[#5f5870] font-medium'
                 }`}
               >
                 {link.label}
