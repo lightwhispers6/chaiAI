@@ -71,13 +71,13 @@ const DEFAULT_MODE = {
 const ALL_MODES = { ...MODES, start: DEFAULT_MODE }
 
 const CONTACT_URL = 'https://www.chaishubang.com/'
-const CONTACT_API = 'https://chaishu-contact.app.workbuddy.host/api/contact?sharecode=ZVH47YSOVU'
+const MAIL_TO = 'annieannie0626@qq.com'
 const OWNER_WX = 'happyannie626'
 
 // ===== 牵线弹窗表单 =====
 function BrokerModal({ p, onClose }) {
   const isPerson = !!p
-  const [form, setForm] = useState({ name: isPerson ? p.n : '', rudder: isPerson ? p.r : '', contact: '', email: '', note: '' })
+  const [form, setForm] = useState({ name: isPerson ? p.n : '', rudder: isPerson ? p.r : '', contact: '', note: '' })
   const [picked, setPicked] = useState(isPerson && p.m && p.m.length ? [...p.m] : [])
   const [state, setState] = useState('idle')
   const [msg, setMsg] = useState('')
@@ -103,30 +103,15 @@ function BrokerModal({ p, onClose }) {
     if (form.name.trim().length < 1) { setState('error'); setMsg('请留下你的名字'); return }
     if (form.contact.trim().length < 5) { setState('error'); setMsg('请留联系方式（微信号 / 手机号 / 邮箱）'); return }
     if (picked.length === 0 && form.note.trim().length < 4) { setState('error'); setMsg('挑一个感兴趣的合作模式，或写一句你的想法'); return }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) { setState('error'); setMsg('请填一个能收到回复的邮箱'); return }
     setState('sending'); setMsg('')
     const message = `【拆搭子牵线】
 我是：${form.name.trim()}${form.rudder.trim() ? '（' + form.rudder.trim() + '）' : ''}
 想聊的合作模式：${modeNames.length ? modeNames.join('；') : '待定'}
 我的想法：${form.note.trim() || '（未填，见面聊）'}
 微信/手机：${form.contact.trim()}`
-    try {
-      const res = await fetch(CONTACT_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name.trim().slice(0, 50),
-          email: form.email.trim(),
-          message,
-          website: '',
-        }),
-      })
-      const d = await res.json().catch(() => ({}))
-      if (res.ok && d.ok) setState('ok')
-      else { setState('error'); setMsg(d.error || (d.errors && Object.values(d.errors)[0]) || '发送失败，请稍后再试') }
-    } catch (err) {
-      setState('error'); setMsg('网络异常，发送失败——可加微信 happyannie626')
-    }
+    const href = `mailto:${MAIL_TO}?subject=${encodeURIComponent('【拆搭子牵线】' + form.name.trim())}&body=${encodeURIComponent(message)}`
+    window.location.href = href
+    setState('ok')
   }
 
   return (
@@ -136,9 +121,9 @@ function BrokerModal({ p, onClose }) {
         {state === 'ok' ? (
           <div className="p-8 text-center">
             <div className="w-14 h-14 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl">🤝</div>
-            <h3 className="text-lg font-black text-[#241f38] mt-4">牵线卡已发送！</h3>
+            <h3 className="text-lg font-black text-[#241f38] mt-4">牵线卡已备好</h3>
             <p className="text-sm text-[#5f5870] mt-2 leading-relaxed">
-              我会通过你留的邮箱尽快回复。急着聊也可以加微信 <span className="font-bold text-[#6c60cc]">happyannie626</span>。
+              已唤起邮件客户端，点发送就到我邮箱。没弹出的话，发到 <span className="font-bold text-[#6c60cc]">{MAIL_TO}</span> 或加微信 <span className="font-bold text-[#6c60cc]">happyannie626</span>。
             </p>
             <button type="button" onClick={onClose} className="mt-6 px-6 py-2.5 rounded-xl text-xs font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">好的</button>
           </div>
@@ -184,11 +169,6 @@ function BrokerModal({ p, onClose }) {
               <input value={form.contact} onChange={set('contact')} maxLength={60} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="微信号 / 手机号" />
             </label>
 
-            <label className="flex flex-col gap-1 mb-3">
-              <span className="text-[11px] font-bold text-[#241f38]">邮箱 <span className="text-rose-500">*</span></span>
-              <input value={form.email} onChange={set('email')} maxLength={80} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40" placeholder="用于接收我的回复" />
-            </label>
-
             <label className="flex flex-col gap-1 mb-4">
               <span className="text-[11px] font-bold text-[#241f38]">想说的话 <span className="text-[#9990a8] font-normal">（可不填）</span></span>
               <textarea value={form.note} onChange={set('note')} maxLength={300} rows={3} className="rounded-xl bg-[#f5f1e8] px-3.5 py-2.5 text-[13px] text-[#241f38] outline-none focus:ring-2 focus:ring-amber-500/40 resize-none" placeholder="一句话介绍你自己 / 你想怎么合作 / 你的疑问……" />
@@ -207,7 +187,7 @@ function BrokerModal({ p, onClose }) {
               </button>
               <button type="button" onClick={copyWechat} className="px-4 py-3 rounded-xl text-xs font-medium text-[#5f5870] hover:text-[#241f38] underline underline-offset-2 whitespace-nowrap">复制微信</button>
             </div>
-            <p className="text-[10px] text-[#9990a8] mt-3 text-center">内容直接发到 annie 邮箱 · 不群发、不留存名录</p>
+            <p className="text-[10px] text-[#9990a8] mt-3 text-center">直接发邮件到 {MAIL_TO} · 不群发、不留存名录</p>
           </form>
         )}
       </div>

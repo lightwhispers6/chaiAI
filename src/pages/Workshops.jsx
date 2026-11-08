@@ -49,10 +49,10 @@ function SupportCard({ t, i }) {
 }
 
 
-const CONTACT_API = 'https://chaishu-contact.app.workbuddy.host/api/contact?sharecode=ZVH47YSOVU'
+const MAIL_TO = 'annieannie0626@qq.com'
 
 function NeedsForm() {
-  const [form, setForm] = useState({ software: '', scene: '', expect: '', contact: '', email: '', website: '' })
+  const [form, setForm] = useState({ software: '', scene: '', expect: '', contact: '', website: '' })
   const [state, setState] = useState('idle')
   const [msg, setMsg] = useState('')
   const set = k => e => setForm(f => ({ ...f, [k]: e.target.value }))
@@ -70,11 +70,6 @@ function NeedsForm() {
       setMsg('请至少写一点想拆的软件或使用场景')
       return
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      setState('error')
-      setMsg('请填一个能收到回复的邮箱')
-      return
-    }
     setState('sending')
     setMsg('')
     const message = `【工作坊需求】
@@ -82,29 +77,10 @@ function NeedsForm() {
 现在的做法：${form.scene.trim() || '（未填）'}
 想让它做到：${form.expect.trim() || '（未填）'}
 微信/手机：${form.contact.trim()}`
-    try {
-      const res = await fetch(CONTACT_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.contact.trim().slice(0, 50),
-          email: form.email.trim(),
-          message,
-          website: form.website,
-        }),
-      })
-      const d = await res.json().catch(() => ({}))
-      if (res.ok && d.ok) {
-        setState('ok')
-        setForm({ software: '', scene: '', expect: '', contact: '', email: '', website: '' })
-      } else {
-        setState('error')
-        setMsg(d.error || (d.errors && Object.values(d.errors)[0]) || '发送失败，请稍后再试')
-      }
-    } catch (err) {
-      setState('error')
-      setMsg('网络异常，发送失败——也可以直接加微信 happyannie626')
-    }
+    const href = `mailto:${MAIL_TO}?subject=${encodeURIComponent('【工作坊需求】' + (form.software.trim() || '想拆个工具'))}&body=${encodeURIComponent(message)}`
+    window.location.href = href
+    setState('ok')
+    setForm({ software: '', scene: '', expect: '', contact: '', website: '' })
   }
 
   return (
@@ -118,10 +94,6 @@ function NeedsForm() {
           <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">联系方式 <span className="text-[#ff2d55]">*</span></label>
           <input value={form.contact} onChange={set('contact')} maxLength={60} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40" placeholder="微信号 / 手机号" />
         </div>
-        <div>
-          <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">邮箱 <span className="text-[#ff2d55]">*</span></label>
-          <input value={form.email} onChange={set('email')} maxLength={80} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40" placeholder="用于接收我的回复" />
-        </div>
         <div className="md:col-span-2">
           <label className="block text-[13px] font-bold text-[#241f38] mb-1.5">你现在是怎么做的</label>
           <textarea value={form.scene} onChange={set('scene')} rows={3} maxLength={600} className="w-full rounded-xl bg-[#f5f1e8] px-4 py-3 text-[14px] text-[#241f38] outline-none focus:ring-2 focus:ring-[#6c60cc]/40 resize-none" placeholder="比如：每天早上手动打开 5 个软件挨个看，大概花 40 分钟" />
@@ -134,12 +106,12 @@ function NeedsForm() {
       <input type="text" name="website" value={form.website} onChange={set('website')} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       {state === 'ok' ? (
         <div className="mt-5 rounded-xl bg-[#34c759]/10 text-[#1d8a3e] text-[14px] px-4 py-3 font-semibold leading-relaxed">
-          已发送！我会通过你留的邮箱回复你。急着聊也可以加微信 <span className="font-black">happyannie626</span>。
+          已唤起邮件客户端，点「发送」就到我邮箱了。没弹出的话，直接发到 <span className="font-black">{MAIL_TO}</span> 或加微信 <span className="font-black">happyannie626</span>。
         </div>
       ) : (
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <button type="submit" disabled={state === 'sending'} className="btn-primary">{state === 'sending' ? '发送中…' : '提交需求 →'}</button>
-          <span className="text-[13px] text-[#9990a8]">内容直接发到 annie 邮箱，不群发。</span>
+          <button type="submit" disabled={state === 'sending'} className="btn-primary">{state === 'sending' ? '打开中…' : '写邮件给我 →'}</button>
+          <span className="text-[13px] text-[#9990a8]">会打开你的邮箱，内容已填好，点发送即可。</span>
         </div>
       )}
       {state === 'error' && (

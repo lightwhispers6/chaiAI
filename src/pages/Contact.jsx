@@ -1,14 +1,6 @@
 import { useState } from 'react'
 
-// 后端接口地址优先级：
-// 1. 环境变量 VITE_CONTACT_API（如有自定义后端）
-// 2. 本地开发：/api/contact（vite 代理到 localhost:3001）
-// 3. 线上默认：已部署的联系表单后端服务
-const API_URL =
-  import.meta.env.VITE_CONTACT_API ||
-  (import.meta.env.DEV
-    ? '/api/contact'
-    : 'https://chaishu-contact.app.workbuddy.host/api/contact?sharecode=ZVH47YSOVU')
+const MAIL_TO = 'annieannie0626@qq.com'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '', website: '' })
@@ -34,25 +26,14 @@ export default function Contact() {
 
     setStatus('sending')
     setServerError('')
-    try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json().catch(() => ({}))
-      if (res.ok && data.ok) {
-        setStatus('success')
-        setForm({ name: '', email: '', message: '', website: '' })
-      } else {
-        setStatus('error')
-        if (data.errors) setErrors(data.errors)
-        setServerError(data.error || '发送失败，请稍后再试')
-      }
-    } catch {
-      setStatus('error')
-      setServerError('网络异常，请稍后再试，或直接加微信 happyannie626 联系')
-    }
+    const body = `称呼：${form.name.trim()}
+我的邮箱：${form.email.trim()}
+
+${form.message.trim()}`
+    const href = `mailto:${MAIL_TO}?subject=${encodeURIComponent('【官网留言】' + form.name.trim())}&body=${encodeURIComponent(body)}`
+    window.location.href = href
+    setStatus('success')
+    setForm({ name: '', email: '', message: '', website: '' })
   }
 
   const inputCls = (hasErr) =>
@@ -70,7 +51,7 @@ export default function Contact() {
           联系我
         </h1>
         <p className="mt-3 text-[14px] leading-relaxed text-[#5f5870]">
-          想约工作坊、聊拆课合作，或单纯打个招呼？填写下面的表单，内容会直接发到我的邮箱，我会尽快回复。
+          想约工作坊、聊拆课合作，或单纯打个招呼？填好下面几栏，点发送会打开你的邮件，内容已填好，直接发我就行。
         </p>
         <p className="mt-2 text-[13px] text-[#9990a8]">
           也可以直接加微信 <span className="text-[#6c60cc] font-medium">happyannie626</span>
@@ -79,9 +60,9 @@ export default function Contact() {
         {status === 'success' ? (
           <div className="mt-10 rounded-2xl border border-[#e7e0d2] bg-[#f5f1e8] p-8 text-center">
             <div className="text-[40px]">📮</div>
-            <div className="mt-2 text-[17px] font-semibold text-[#241f38]">留言已送达</div>
+            <div className="mt-2 text-[17px] font-semibold text-[#241f38]">邮件已备好</div>
             <p className="mt-2 text-[13px] text-[#5f5870] leading-relaxed">
-              感谢你的来信，我会尽快通过你留下的邮箱回复。
+              已唤起你的邮件客户端，点「发送」就到我邮箱。没弹出的话，直接发到 annieannie0626@qq.com。
             </p>
             <button
               onClick={() => setStatus('idle')}
@@ -167,7 +148,7 @@ export default function Contact() {
               disabled={status === 'sending'}
               className="w-full md:w-auto px-8 py-3 rounded-full text-[14px] font-semibold bg-[#6c60cc] text-white hover:bg-[#7d72d6] transition-colors shadow-[0_4px_14px_rgba(108,96,204,.3)] disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {status === 'sending' ? '发送中…' : '发送留言'}
+              {status === 'sending' ? '打开中…' : '写邮件给我'}
             </button>
           </form>
         )}
