@@ -48,7 +48,6 @@ function SupportCard({ t, i }) {
   )
 }
 
-const NEEDS_API = 'https://api.aibay.asia/needs/needs'
 
 function NeedsForm() {
   const [form, setForm] = useState({ software: '', scene: '', expect: '', contact: '', website: '' })
@@ -71,25 +70,18 @@ function NeedsForm() {
     }
     setState('sending')
     setMsg('')
+    const lines = [
+      '【工作坊需求】',
+      form.software.trim() && ('想拆的工具：' + form.software.trim()),
+      form.scene.trim() && ('现在的做法：' + form.scene.trim()),
+      form.expect.trim() && ('想让它做到：' + form.expect.trim()),
+      '我的联系方式：' + form.contact.trim(),
+    ].filter(Boolean).join('\n')
     try {
-      const r = await fetch(NEEDS_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const d = await r.json().catch(() => ({}))
-      if (r.ok && d.ok) {
-        setState('ok')
-        window.alert(d.mailed ? '提交成功！需求已发送到站长邮箱，我们会尽快回复你。' : '提交成功！我们按需求排期后，会通过你留的联系方式告诉你。')
-        setForm({ software: '', scene: '', expect: '', contact: '', website: '' })
-      } else {
-        setState('error')
-        setMsg(d.error || '提交失败，请稍后再试，或直接加微信 happyannie626')
-      }
-    } catch {
-      setState('error')
-      setMsg('网络异常，提交失败——加微信 happyannie626 一样能提需求')
-    }
+      await navigator.clipboard.writeText(lines)
+    } catch (err) {}
+    setState('ok')
+    setForm({ software: '', scene: '', expect: '', contact: '', website: '' })
   }
 
   return (
@@ -114,11 +106,13 @@ function NeedsForm() {
       </div>
       <input type="text" name="website" value={form.website} onChange={set('website')} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       {state === 'ok' ? (
-        <div className="mt-5 rounded-xl bg-[#34c759]/10 text-[#1d8a3e] text-[14px] px-4 py-3 font-semibold">已收到！我们按需求排期后，会通过你留的联系方式告诉你。</div>
+        <div className="mt-5 rounded-xl bg-[#34c759]/10 text-[#1d8a3e] text-[14px] px-4 py-3 font-semibold leading-relaxed">
+          需求已复制到剪贴板。打开微信搜 <span className="font-black">happyannie626</span>，粘贴发给我，我尽快回你。
+        </div>
       ) : (
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <button type="submit" disabled={state === 'sending'} className="btn-primary">{state === 'sending' ? '提交中…' : '提交需求 →'}</button>
-          <span className="text-[13px] text-[#9990a8]">提交后由工作坊老师人工跟进，不群发打扰。</span>
+          <button type="submit" disabled={state === 'sending'} className="btn-primary">{state === 'sending' ? '处理中…' : '复制需求，加微信发我 →'}</button>
+          <span className="text-[13px] text-[#9990a8]">只在你本机生成文字，不上传任何服务器。</span>
         </div>
       )}
       {state === 'error' && (

@@ -71,9 +71,7 @@ const DEFAULT_MODE = {
 const ALL_MODES = { ...MODES, start: DEFAULT_MODE }
 
 const CONTACT_URL = 'https://www.chaishubang.com/'
-const OWNER_MAIL = ''
 const OWNER_WX = 'happyannie626'
-const NEEDS_API = 'https://api.aibay.asia/needs/needs'
 
 // ===== 牵线弹窗表单 =====
 function BrokerModal({ p, onClose }) {
@@ -96,7 +94,7 @@ function BrokerModal({ p, onClose }) {
   }, [onClose, state])
 
   const modeNames = picked.map(id => (ALL_MODES[id] ? ALL_MODES[id].full : '另有想法'))
-  const mailtoHref = `mailto:${OWNER_MAIL}?subject=${encodeURIComponent(`拆搭子合作牵线 · ${form.name.trim() || '（未署名）'}`)}&body=${encodeURIComponent(`annie你好，我是${form.name.trim()}${form.rudder.trim() ? `（${form.rudder.trim()}）` : ''}。\n\n想聊的合作模式：${modeNames.length ? modeNames.join('；') : '待定'}\n\n我的想法：${form.note.trim() || '（见面聊）'}\n\n我的联系方式：${form.contact.trim() || '（邮件回复即可）'}`)}`
+  const copyWechat = () => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }
 
   const submit = async e => {
     e.preventDefault()
@@ -105,24 +103,17 @@ function BrokerModal({ p, onClose }) {
     if (form.contact.trim().length < 5) { setState('error'); setMsg('请留联系方式（微信号 / 手机号 / 邮箱）'); return }
     if (picked.length === 0 && form.note.trim().length < 4) { setState('error'); setMsg('挑一个感兴趣的合作模式，或写一句你的想法'); return }
     setState('sending'); setMsg('')
+    const lines = [
+      '【拆搭子牵线】',
+      '我是：' + form.name.trim() + (form.rudder.trim() ? '（' + form.rudder.trim() + '）' : ''),
+      '想聊的合作模式：' + (modeNames.length ? modeNames.join('；') : '待定'),
+      '我的想法：' + (form.note.trim() || '（未填，见面聊）'),
+      '我的联系方式：' + form.contact.trim(),
+    ].join('\n')
     try {
-      const r = await fetch(NEEDS_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          software: `【拆搭子牵线】${form.name.trim()}（${form.rudder.trim() || '未填分舵'}）`,
-          scene: `想聊的模式：${modeNames.length ? modeNames.join('；') : '待定'}${isPerson && p.t && p.t.length ? ` ｜ 标签：${p.t.join('/')}` : ''}`,
-          expect: form.note.trim() || '（未填具体想法，待联系）',
-          contact: form.contact.trim(),
-          website: '',
-        }),
-      })
-      const d = await r.json().catch(() => ({}))
-      if (r.ok && d.ok) setState('ok')
-      else { setState('error'); setMsg(d.error || '提交失败，请稍后再试') }
-    } catch {
-      setState('error'); setMsg('网络异常，提交失败——可改用邮件发送')
-    }
+      await navigator.clipboard.writeText(lines)
+    } catch (err) {}
+    setState('ok')
   }
 
   return (
@@ -132,9 +123,9 @@ function BrokerModal({ p, onClose }) {
         {state === 'ok' ? (
           <div className="p-8 text-center">
             <div className="w-14 h-14 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl">🤝</div>
-            <h3 className="text-lg font-black text-[#241f38] mt-4">牵线卡已发出！</h3>
+            <h3 className="text-lg font-black text-[#241f38] mt-4">牵线卡已复制！</h3>
             <p className="text-sm text-[#5f5870] mt-2 leading-relaxed">
-              你的合作意向已收到，annie 会通过你留的联系方式尽快回复你。
+              打开微信搜 <span className="font-bold text-[#6c60cc]">happyannie626</span>，粘贴发给我，我尽快回你。
             </p>
             <button type="button" onClick={onClose} className="mt-6 px-6 py-2.5 rounded-xl text-xs font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">好的</button>
           </div>
@@ -188,7 +179,7 @@ function BrokerModal({ p, onClose }) {
             {state === 'error' && (
               <div className="mb-4 rounded-xl bg-rose-500/10 border border-rose-500/25 px-4 py-3 text-xs text-rose-600">
                 {msg}
-                <a href={mailtoHref} className="underline underline-offset-2 ml-1 font-bold">改用邮件发送 →</a>
+                <button type="button" onClick={copyWechat} className="underline underline-offset-2 ml-1 font-bold">复制微信 happyannie626</button>
               </div>
             )}
 
@@ -196,9 +187,9 @@ function BrokerModal({ p, onClose }) {
               <button type="submit" disabled={state === 'sending'} className="flex-1 px-5 py-3 rounded-xl text-sm font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors disabled:opacity-50">
                 {state === 'sending' ? '发送中…' : '发送牵线卡 ✉️'}
               </button>
-              <a href={mailtoHref} className="px-4 py-3 rounded-xl text-xs font-medium text-[#5f5870] hover:text-[#241f38] underline underline-offset-2 whitespace-nowrap">改用邮件</a>
+              <button type="button" onClick={copyWechat} className="px-4 py-3 rounded-xl text-xs font-medium text-[#5f5870] hover:text-[#241f38] underline underline-offset-2 whitespace-nowrap">复制微信</button>
             </div>
-            <p className="text-[10px] text-[#9990a8] mt-3 text-center">直接发到站长邮箱 {OWNER_MAIL} · 不自动群发、不留存名录</p>
+            <p className="text-[10px] text-[#9990a8] mt-3 text-center">复制内容 → 微信搜 happyannie626 → 粘贴发送 · 不上传服务器</p>
           </form>
         )}
       </div>
@@ -519,7 +510,7 @@ export default function Chaibuddy() {
 
             {loadErr && (
               <div className="mt-6 text-center text-sm text-rose-500">
-                名录加载失败（网络或部署问题）——刷新重试，或直接邮件站长：{OWNER_MAIL}
+                名录加载失败（网络或部署问题）——刷新重试，或加微信 happyannie626 找 annie
               </div>
             )}
             {!data && !loadErr && (
