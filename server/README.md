@@ -3,6 +3,13 @@
 访客在官网 `/contact` 页面提交表单 → 本服务通过 **QQ 邮箱 SMTP** 把留言发到 `annieannie0626@qq.com`。
 授权码只保存在服务器环境变量里，前端代码零暴露。
 
+## 当前线上部署（WorkBuddy 托管）
+
+- 后端地址：`https://chaishu-contact.app.workbuddy.host`（API 调用需带分享码参数，完整地址已写在前端 `src/pages/Contact.jsx` 里）
+- 前端 `Contact.jsx` 的 API 地址优先级：`VITE_CONTACT_API` 环境变量 > 本地开发代理 > 上述线上地址
+- 管理入口：WorkBuddy「设置 → 数据管理 → 应用」，可查看/下线该服务
+- 注意：该托管适合轻量使用。如未来访问量增大或需要常驻服务，可按下方 Render 方案迁移，迁移后只需改前端一处地址
+
 ## 本地运行
 
 ```bash
