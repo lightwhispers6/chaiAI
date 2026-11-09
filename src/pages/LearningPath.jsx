@@ -255,7 +255,7 @@ export default function LearningPath() {
                       </svg>
                     </Link>
                     <a
-                      href="/tf-assess/#ai"
+                      href={`${import.meta.env.BASE_URL}tf-assess/#ai`}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass text-[#4a4458] text-sm font-medium hover:text-[#241f38] transition-all border border-violet-500/20"
                     >
                       在线自评 · RIA 拆 AI

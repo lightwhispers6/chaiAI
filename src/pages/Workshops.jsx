@@ -353,7 +353,7 @@ export default function Workshops() {
             )}
             <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">后续场次报名：微信 happyannie626 📋</button>
             <div className="mt-5">
-              <a href="/camp" className="text-[14px] text-[#2997ff] hover:underline">线上也能玩：拆AI营 · 工作流/工作台/量化三版块，每周三晚开拆 →</a>
+              <a href={`${import.meta.env.BASE_URL}camp`} className="text-[14px] text-[#2997ff] hover:underline">线上也能玩：拆AI营 · 工作流/工作台/量化三版块，每周三晚开拆 →</a>
             </div>
           </div>
         </div>

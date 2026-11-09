@@ -177,7 +177,7 @@ export default function Coai() {
               也可以直接找站长聊。
             </p>
             <div className="flex items-center justify-center gap-3 flex-wrap mt-6">
-              <a href="/chaibuddy" className="px-5 py-2.5 rounded-xl text-sm font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">去拆搭子找自己 →</a>
+              <a href={`${import.meta.env.BASE_URL}chaibuddy`} className="px-5 py-2.5 rounded-xl text-sm font-bold bg-[#241f38] text-white hover:bg-[#3a3a3c] transition-colors">去拆搭子找自己 →</a>
               <a href="mailto:annieannie0626@qq.com?subject=%E3%80%90%E5%85%B1%E6%8B%86AI%E3%80%91%E6%83%B3%E8%81%8A%E5%90%88%E4%BD%9C" className="px-5 py-2.5 rounded-xl text-sm font-bold glass border border-white/15 text-[#241f38] hover:border-white/30 transition-colors">发邮件给我</a>
             </div>
           </div>

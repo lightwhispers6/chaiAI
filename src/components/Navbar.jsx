@@ -5,7 +5,6 @@ import { nextOpen } from '../data/workshops'
 const navLinks = [
   { path: '/learning-path', label: '拆成长' },
   { path: '/hot', label: '拆经典' },
-  { path: '/chailive/', label: '拆指南', external: true },
   { path: '/chaibuddy', label: '拆搭子' },
   { path: '/workshops', label: '拆软件' },
   { path: '/skills', label: '拆技能' },
@@ -20,6 +19,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const nx = nextOpen()
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+  const isActive = (p) => location.pathname === p || location.pathname === base + p
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -34,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
           <img
-            src="/images/logo-mark.png"
+            src={`${import.meta.env.BASE_URL}images/logo-mark.png`}
             alt="拆书成课"
             className="h-9 w-auto"
           />
@@ -55,7 +56,7 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               className={`px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-all duration-200 ${
-                location.pathname === link.path
+                isActive(link.path)
                   ? 'bg-black/[.05] text-[#241f38]'
                   : 'text-[#5f5870] hover:text-[#241f38] hover:bg-black/[.04]'
               }`}
@@ -110,7 +111,7 @@ export default function Navbar() {
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
                 className={`py-3 text-[15px] border-b border-black/[.04] last:border-0 ${
-                  location.pathname === link.path
+                  isActive(link.path)
                     ? 'text-[#241f38] font-semibold'
                     : 'text-[#5f5870] font-medium'
                 }`}

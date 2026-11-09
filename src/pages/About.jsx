@@ -7,7 +7,7 @@ function ContactBlock() {
     <div className="p-7 rounded-xl bg-[#f5f1e8]/70 border border-[#e7e0d2]">
       <div className="flex flex-col sm:flex-row items-center gap-7">
         <img
-          src="/images/wechat-qr.png"
+          src={`${import.meta.env.BASE_URL}images/wechat-qr.png`}
           alt="annie 微信二维码"
           className="w-40 h-40 shrink-0 rounded-xl bg-white p-2 border border-[#e7e0d2] shadow-[0_6px_20px_rgba(36,31,56,.07)]"
         />
@@ -44,7 +44,7 @@ export default function About() {
           {/* 品牌与主理人 */}
           <div className="text-center mb-12">
             <img
-              src="/images/logo-chaishu.png"
+              src={`${import.meta.env.BASE_URL}images/logo-chaishu.png`}
               alt="拆书成课"
               className="w-32 md:w-40 mx-auto mb-2"
             />

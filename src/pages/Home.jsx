@@ -15,17 +15,19 @@ const chaifa = [
   { k: '成课', d: '交出一套能开课的资产：大纲、课件、练习、验收标准。不是听完就散，是拿走就能开讲。', icon: 'M16 7l-4 4-4-4m8 6l-4 4-4-4' },
 ]
 
-// 八大模块全景（与导航同序：拆成长→拆经典→拆指南→拆搭子→拆软件→拆技能→拆专家→共拆AI；数字=站内真实资产）
+// 七大模块全景（与导航同序：拆成长→拆经典→拆搭子→拆软件→拆技能→拆专家→共拆AI；数字=站内真实资产）
 const modules = [
   { k: '拆成长', emoji: '🧭', d: '三级九拆过级路线，33 个官方技能点逐项拆解', stat: '33 个', statLabel: '技能点 · TF1-1~TF3-3', href: '/learning-path', tile: 'bg-indigo-500/10', num: 'text-indigo-600' },
   { k: '拆经典', emoji: '📖', d: '2255 本致用经典热拆库，1713 本已有拆页', stat: '1713 本', statLabel: '已有拆页 · 全库 2255 本', href: '/hot', tile: 'bg-rose-500/10', num: 'text-rose-600' },
-  { k: '拆指南', emoji: '📚', d: 'RIA 便签法全库共拆，六大兴趣模块连读', stat: '2255 本', statLabel: '19262 页拆页全库', href: 'https://www.aibay.asia/chailive/', tile: 'bg-teal-500/10', num: 'text-teal-600' },
   { k: '拆搭子', emoji: '🤝', d: '5473 位拆书家名录，按城市/标签匹配搭子', stat: '5473 人', statLabel: '83 分舵 · 7 种合作模式', href: '/chaibuddy', tile: 'bg-amber-500/10', num: 'text-amber-600' },
   { k: '拆软件', emoji: '🖥️', d: '工作坊当场拆开真 AI 软件，接回你的产线', stat: '4 期', statLabel: '真实软件 · 场场有产出', href: '/workshops', tile: 'bg-sky-500/10', num: 'text-sky-600' },
   { k: '拆技能', emoji: '⚡', d: '每个技能拆成便签+信息图+可下载 Skill', stat: '210 个', statLabel: '技能拆解 · 全部可下载', href: '/skills', tile: 'bg-violet-500/10', num: 'text-violet-600' },
   { k: '拆专家', emoji: '🧠', d: '思想家蒸馏成可召唤的领域 AI 专家团', stat: '8 套', statLabel: '思想体系 · 6 个专家团', href: '/skill-fusion', tile: 'bg-fuchsia-500/10', num: 'text-fuchsia-600' },
   { k: '共拆AI', emoji: '🚀', d: '六条合作线全部开放，带着你的领域加入', stat: '6 条线', statLabel: '开源共建 · 挑一条进', href: '/coai', tile: 'bg-emerald-500/10', num: 'text-emerald-600' },
 ]
+
+// 本站部署在子路径（base=/chaiAI/），绝对路径需补前缀，否则会打到域名根目录 404
+const withBase = (h) => (h.startsWith('http') ? h : `${import.meta.env.BASE_URL}${h.replace(/^\//, '')}`)
 
 export default function Home() {
   const nx = nextOpen()
@@ -116,15 +118,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== 八大模块全景 ==================== */}
+      {/* ==================== 七大模块全景 ==================== */}
       <section className="py-24 px-4 bg-[#f5f1e8] border-y border-black/[.05]">
         <div className="max-w-6xl mx-auto">
           <div className="eyebrow mb-3 text-center">站点全景 · 一图看懂</div>
           <h2 className="headline text-[30px] md:text-[40px] text-center mb-4">
-            八个模块，一条<span className="gradient-text">「拆」的进阶线</span>
+            七个模块，一条<span className="gradient-text">「拆」的进阶线</span>
           </h2>
           <p className="text-center text-[#5f5870] text-[15px] mb-14 max-w-2xl mx-auto">
-            从三级九拆的过级路，到全库共拆、找到搭子、拆开真软件、长出技能、召唤专家——最后加入共建。
+            从三级九拆的过级路，到拆开经典热库、找到搭子、拆开真软件、长出技能、召唤专家——最后加入共建。
             每一站都有真实数字在跑，不摆概念。
           </p>
           <div className="relative">
@@ -138,7 +140,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.09 }}
                 >
-                  <a href={m.href} className="group block h-full apple-card p-5 !shadow-sm">
+                  <a href={withBase(m.href)} className="group block h-full apple-card p-5 !shadow-sm">
                     <div className="flex lg:justify-center mb-4">
                       <div className={`relative w-12 h-12 rounded-2xl ${m.tile} flex items-center justify-center text-2xl`}>
                         {m.emoji}
@@ -157,7 +159,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <a href="/coai" className="text-[13px] font-semibold text-[#6c60cc] hover:text-[#241f38] transition-colors">
+            <a href={withBase('/coai')} className="text-[13px] font-semibold text-[#6c60cc] hover:text-[#241f38] transition-colors">
               六条合作线怎么选 → 看共拆AI 专页
             </a>
           </div>
@@ -271,7 +273,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center gap-4">
             <img
-              src="/images/wechat-qr.png"
+              src={`${import.meta.env.BASE_URL}images/wechat-qr.png`}
               alt="annie 微信二维码"
               className="w-[168px] rounded-xl bg-white p-2 border border-[#e7e0d2] shadow-[0_8px_24px_rgba(36,31,56,.08)]"
             />

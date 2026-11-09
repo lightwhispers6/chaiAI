@@ -727,7 +727,7 @@ export default function Chaibuddy() {
                 >
                   <div className={`relative rounded-2xl overflow-hidden mb-6 border ${cat.border} group cursor-pointer`}>
                     <img
-                      src={`/images/hd/category-${cat.id}.png`}
+                      src={`${import.meta.env.BASE_URL}images/hd/category-${cat.id}.png`}
                       alt={cat.title}
                       className="w-full h-48 md:h-56 object-cover group-hover:scale-[1.02] transition-transform duration-700"
                     />
@@ -746,7 +746,7 @@ export default function Chaibuddy() {
                     {group.items.map((item, i) => (
                       <motion.a
                         key={`${item.slug}-${i}`}
-                        href={`/images/skills/${encodeURIComponent(item.slug)}.html`}
+                        href={`${import.meta.env.BASE_URL}images/skills/${encodeURIComponent(item.slug)}.html`}
                         target="_blank"
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 10 }}
