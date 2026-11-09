@@ -64,16 +64,18 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={nx ? nx.link : '/workshops'}
-            className="ml-2 px-4 py-1.5 rounded-full text-[13.5px] font-semibold bg-[#6c60cc] text-white hover:bg-[#7d72d6] transition-colors shadow-[0_4px_14px_rgba(108,96,204,.3)]"
-          >
-            {nx ? '报名工作坊' : '课程回看'}
-          </a>
+          {nx && (
+            <a
+              href={nx.link}
+              className="ml-2 px-4 py-1.5 rounded-full text-[13.5px] font-semibold bg-[#6c60cc] text-white hover:bg-[#7d72d6] transition-colors shadow-[0_4px_14px_rgba(108,96,204,.3)]"
+            >
+              报名工作坊
+            </a>
+          )}
         </div>
 
         <div className="flex items-center gap-1.5 md:hidden">
-          <a href={nx ? nx.link : '/workshops'} className="px-3.5 py-1.5 rounded-full text-[13px] font-semibold bg-[#6c60cc] text-white">{nx ? '报名' : '回看'}</a>
+          {nx && <a href={nx.link} className="px-3.5 py-1.5 rounded-full text-[13px] font-semibold bg-[#6c60cc] text-white">报名</a>}
           <button
             type="button"
             aria-label={menuOpen ? '关闭菜单' : '打开菜单'}

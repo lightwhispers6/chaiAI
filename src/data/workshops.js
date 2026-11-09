@@ -192,7 +192,7 @@ export function statusLabelOf(w) {
   const s = stageOf(w)
   if (s === 'open') return `${w.date} · 报名中`
   if (s === 'live') return '今天进行中'
-  if (s === 'done') return '已交付 · 材料回看'
+  if (s === 'done') return '已交付'
   return `${w.date} · 排期中`
 }
 
@@ -213,7 +213,7 @@ export const seriesIntro = (() => {
   const mid = nx
     ? `下一场 ${shortDate(nx)} 开课，正在报名`
     : n > 0
-      ? '上一场已交付，材料可回看，下一期排期中'
+      ? '上一场已交付，下一期排期中'
       : '首场时间即将公布'
   return `${lead}${mid}；其余全部开放投票——点「我支持」，支持数高的先开。想拆的在列表里没有？加微信 happyannie626 告诉我。`
 })()

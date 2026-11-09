@@ -207,7 +207,6 @@ export default function Workshops() {
             <div className="flex flex-wrap gap-3">
               {s === 'done' ? (
                 <>
-                  {w.link && <a href={w.link} className="btn-primary">材料回看 · 课件与学员材料 →</a>}
                   {w.guide && <a href={w.guide} className="btn-secondary">自助跟做手册 · 零基础也能一步步做出成果 →</a>}
                   <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">想听下一场：微信 happyannie626 📋</button>
                 </>
@@ -276,47 +275,6 @@ export default function Workshops() {
       </section>
       )}
 
-      {done.length > 0 && (
-      <section className="px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="eyebrow mb-6">已交付 · 材料回看</div>
-          <div className="space-y-4">
-            {done.map((w, i) => (
-              <motion.div
-                key={w.id}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="apple-card p-6 md:p-7 opacity-[.92]"
-              >
-                <div className="flex flex-wrap items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[22px] font-bold text-[#c9b9a4]">{w.no}</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#6c60cc]/[.07] text-[#6c60cc] text-[11.5px] font-semibold">✓ 已交付 · {w.date}</span>
-                    </div>
-                    <h3 className="text-[19px] font-bold text-[#241f38] mb-1.5">{w.title}</h3>
-                    <p className="text-[14px] text-[#5f5870] leading-relaxed mb-2.5 max-w-xl">{w.short}</p>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {w.outcomes.map(o => (
-                        <span key={o} className="px-2.5 py-1 rounded-lg bg-[#6c60cc]/[.06] text-[#4a4458] text-[12.5px]">{o}</span>
-                      ))}
-                    </div>
-                    {(w.link || w.guide) && (
-                      <div className="mt-1 flex flex-wrap items-center gap-4">
-                        {w.link && <a href={w.link} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">材料回看 · 课件与学员材料 →</a>}
-                        {w.guide && <a href={w.guide} className="text-[13px] font-semibold text-[#6c60cc] hover:underline">自助跟做手册 →</a>}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      )}
 
       {/* ==================== 主题投票：我支持 ==================== */}
       <section className="px-4 py-16">
@@ -346,10 +304,8 @@ export default function Workshops() {
             <p className="text-[14px] text-[#5f5870] mb-5">
               投完票想聊聊？加微信 happyannie626，备注「工作坊」——也帮你想拆的软件出出主意。
             </p>
-            {nx ? (
+            {nx && (
               <a href={nx.signupUrl || nx.link} target={nx.signupUrl ? '_blank' : undefined} rel="noreferrer" className="btn-primary">报名 {shortDate(nx)} 场（{nx.title.split(' · ')[0]}）→</a>
-            ) : (
-              <a href={done.length ? done[done.length - 1].link : '/workshops'} className="btn-primary">看已交付课程材料 →</a>
             )}
             <button type="button" onClick={() => { try { navigator.clipboard?.writeText('happyannie626') } catch (e) {} }} className="btn-secondary" title="点击复制微信号">后续场次报名：微信 happyannie626 📋</button>
             <div className="mt-5">

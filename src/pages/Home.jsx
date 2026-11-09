@@ -32,7 +32,7 @@ const withBase = (h) => (h.startsWith('http') ? h : `${import.meta.env.BASE_URL}
 export default function Home() {
   const nx = nextOpen()
   const done = doneList()
-  // spotlight 焦点：优先下一场报名中的；全交付完则落最新已交付场（材料回看）；再退首场
+  // spotlight 焦点：优先下一场报名中的；无报名中则落最新已交付场；再退首场
   const first = nx || done[done.length - 1] || workshops[0]
   const rest = workshops.filter(w => w.id !== first.id)
 
@@ -53,9 +53,9 @@ export default function Home() {
               从「读过」到「讲得出」，中间那一步，我做。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href={first.link} className="btn-primary">
-                {nx ? '报名工作坊 →' : '回看课程材料 →'}
-              </a>
+              {nx && (
+                <a href={first.link} className="btn-primary">报名工作坊 →</a>
+              )}
               <Link to="/workshops" className="btn-secondary">
                 看全部主题 & 投票 →
               </Link>
@@ -190,7 +190,7 @@ export default function Home() {
                 <h3 className="text-[26px] font-bold text-[#241f38] tracking-tight">{first.title}</h3>
                 <p className="text-[#5f5870] text-[15px] mt-2 max-w-xl">{first.short}</p>
               </div>
-              <a href={stageOf(first) === 'open' ? (first.signupUrl || first.link) : first.link} target={stageOf(first) === 'open' ? '_blank' : undefined} rel="noreferrer" className="btn-primary shrink-0">{stageOf(first) === 'open' ? '立即报名' : '材料回看'}</a>
+              {stageOf(first) === 'open' && <a href={first.signupUrl || first.link} target="_blank" rel="noreferrer" className="btn-primary shrink-0">立即报名</a>}
             </div>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
@@ -281,7 +281,7 @@ export default function Home() {
               <div className="text-[12.5px] text-[#9990a8] mb-1">扫码加微信</div>
               <div className="text-[16px] font-semibold text-[#6c60cc]">happyannie626</div>
             </div>
-            <a href={nx ? first.link : '/workshops'} className="text-[13px] text-[#6c60cc] hover:underline">{nx ? `了解第 ${parseInt(first.no, 10)} 期课程 →` : '看全部课程与材料回看 →'}</a>
+            {nx && <a href={first.link} className="text-[13px] text-[#6c60cc] hover:underline">了解第 {parseInt(first.no, 10)} 期课程 →</a>}
           </div>
         </div>
       </section>

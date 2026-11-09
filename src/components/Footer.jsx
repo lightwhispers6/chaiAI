@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-[13px] text-[#5f5870]">
               <li><Link to="/workshops" className="hover:text-[#6c60cc] transition-colors">全部课程</Link></li>
               <li><Link to="/learning-path" className="hover:text-[#6c60cc] transition-colors">拆课路径</Link></li>
-              <li><a href={nx ? nx.link : '/workshops'} className="hover:text-[#6c60cc] transition-colors">{nx ? '报名下一场' : '课程材料回看'}</a></li>
+              {nx && <li><a href={nx.link} className="hover:text-[#6c60cc] transition-colors">报名下一场</a></li>}
             </ul>
           </div>
           <div>
